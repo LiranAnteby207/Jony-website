@@ -1,4 +1,4 @@
-import { Button, HStack, Text } from "@chakra-ui/react";
+import { Button, HStack } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 
 const SideBar = ({ onClick }: { onClick: () => void }) => {

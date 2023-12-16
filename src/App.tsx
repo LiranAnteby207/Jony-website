@@ -2,6 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
+import GameGrid from "./components/GameGrid";
 
 function App() {
   const [isNotDisplay, setNotDisplay] = useState(false);
@@ -23,7 +24,9 @@ function App() {
       <GridItem area="nav">
         <NavBar onClick={handleButtonClick} isNotDisplay={isNotDisplay} />
       </GridItem>
-      <GridItem area="main">Main</GridItem>
+      <GridItem padding={35} area="main">
+        <GameGrid />
+      </GridItem>
     </Grid>
   );
 }
