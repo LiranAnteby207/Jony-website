@@ -1,10 +1,13 @@
 import { Button, Grid, GridItem } from "@chakra-ui/react";
 import { useState } from "react";
+import NavBar from "./components/NavBar";
 
 function App() {
+  const [isNotDisplay, setNotDisplay] = useState(false);
   const [showSidebar, setSideBar] = useState(false);
   const handleButtonClick = () => {
     setSideBar(!showSidebar);
+    setNotDisplay(!isNotDisplay);
   };
   const gridTemplateAreas = showSidebar
     ? `"sidebar   nav" "sidebar main"`
@@ -13,12 +16,12 @@ function App() {
     <Grid templateAreas={gridTemplateAreas} templateColumns="200px 1fr" gap={1}>
       {showSidebar && (
         <GridItem area="sidebar" bg="gold" colSpan={1}>
-          {/* Sidebar content goes here */}
+          <Button onClick={handleButtonClick}>close</Button>
           Sidebar Content
         </GridItem>
       )}
-      <GridItem area="nav" bg="coral">
-        <Button onClick={handleButtonClick}>sidebar handle</Button>
+      <GridItem area="nav">
+        <NavBar onClick={handleButtonClick} isNotDisplay={isNotDisplay} />
       </GridItem>
       <GridItem area="main" bg="green">
         Main
