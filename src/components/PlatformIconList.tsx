@@ -7,9 +7,16 @@ import {
   FaApple,
   FaLinux,
   FaAndroid,
+  FaNeos,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+import {
+  SiD3Dotjs,
+  SiNintendo,
+  SiAtari,
+  SiCommodore,
+  SiSega,
+} from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 
@@ -27,6 +34,11 @@ const PlatformIconList = ({ platforms }: Props) => {
     android: FaAndroid,
     ios: MdPhoneIphone,
     web: BsGlobe,
+    atari: SiAtari,
+    sega: SiSega,
+    "3do": SiD3Dotjs,
+    "commodore-amiga": SiCommodore,
+    "neo-geo": FaNeos,
   };
   return (
     <HStack marginY={1}>

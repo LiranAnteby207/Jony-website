@@ -18,9 +18,16 @@ import {
   FaApple,
   FaLinux,
   FaAndroid,
+  FaNeos,
 } from "react-icons/fa";
 import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
+import {
+  SiD3Dotjs,
+  SiNintendo,
+  SiAtari,
+  SiCommodore,
+  SiSega,
+} from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 interface Props {
@@ -38,6 +45,11 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
     android: FaAndroid,
     ios: MdPhoneIphone,
     web: BsGlobe,
+    atari: SiAtari,
+    sega: SiSega,
+    "3do": SiD3Dotjs,
+    "commodore-amiga": SiCommodore,
+    "neo-geo": FaNeos,
   };
   const { data, error } = usePlatforms();
 
@@ -56,10 +68,11 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
             <HStack>
               <Icon
                 key={platform.id}
-                as={iconMap[platform.slug]}
+                as={iconMap[platform.slug] || platform.slug}
                 color="gray.500"
+                title={platform.slug}
               />
-              <Text>{platform.name}</Text>
+              <Text>{platform.slug}</Text>
             </HStack>
           </MenuItem>
         ))}
