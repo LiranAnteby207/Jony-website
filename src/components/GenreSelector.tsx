@@ -1,4 +1,13 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import {
+  Button,
+  HStack,
+  Image,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+} from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import useGenres, { Genre } from "../hooks/useGenres";
 interface Props {
@@ -17,7 +26,15 @@ const GenreSelector = ({ onSelectGenre, selectedGenre }: Props) => {
       <MenuList>
         {data.map((genre) => (
           <MenuItem onClick={() => onSelectGenre(genre)} key={genre.id}>
-            {genre.name}
+            <HStack>
+              <Image
+                boxSize="32px"
+                borderRadius={8}
+                objectFit="cover"
+                src={genre.image_background}
+              />
+              <Text>{genre.name}</Text>
+            </HStack>
           </MenuItem>
         ))}
       </MenuList>
