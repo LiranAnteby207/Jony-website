@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, useColorMode } from "@chakra-ui/react";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
@@ -25,15 +25,14 @@ function App() {
     setSideBar(!showSidebar);
     setNotDisplay(!isNotDisplay);
   };
-  const gridTemplateAreas = showSidebar ? `"nav" "main"` : `"nav" "main"`;
+  const { colorMode } = useColorMode();
   return (
-    <Grid templateAreas={gridTemplateAreas} templateColumns="1fr" gap={2}>
+    <Grid templateAreas={`"nav" "main"`} templateColumns="1fr" gap={2}>
       {showSidebar && (
         <GridItem
-          bgColor="black"
           area="sidebar"
-          colSpan={1}
           position="absolute"
+          backgroundColor={colorMode === "dark" ? "gray.800" : "white"}
           top={0}
           bottom={0}
           left={0}

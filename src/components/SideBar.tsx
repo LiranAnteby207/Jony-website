@@ -1,4 +1,4 @@
-import { Button, HStack } from "@chakra-ui/react";
+import { Button, HStack, Heading } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 
 interface Props {
@@ -11,6 +11,17 @@ const SideBar = ({ onClick }: Props) => {
         <Button onClick={onClick}>x</Button>
         <ColorModeSwitch />
       </HStack>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
+      <Heading>liran</Heading>
     </>
   );
 };
