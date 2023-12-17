@@ -15,9 +15,9 @@ function App() {
     ? `"sidebar   nav" "sidebar main"`
     : `"nav   nav" "main main"`;
   return (
-    <Grid templateAreas={gridTemplateAreas} templateColumns="200px 1fr" gap={1}>
+    <Grid templateAreas={gridTemplateAreas} templateColumns="200px 1fr" gap={2}>
       {showSidebar && (
-        <GridItem area="sidebar" colSpan={1}>
+        <GridItem area="sidebar" colSpan={1} paddingX={5}>
           <SideBar onClick={handleButtonClick} />
         </GridItem>
       )}
