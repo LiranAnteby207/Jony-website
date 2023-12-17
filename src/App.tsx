@@ -23,6 +23,7 @@ function App() {
           <SideBar
             onSelectGenre={(genre) => setSelectedGenre(genre)}
             onClick={handleButtonClick}
+            selectedGenre={selectedGenre}
           />
         </GridItem>
       )}
