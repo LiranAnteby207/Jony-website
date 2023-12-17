@@ -3,8 +3,10 @@ import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import GameGrid from "./components/GameGrid";
+import { Genre } from "./hooks/useGenres";
 
 function App() {
+  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [isNotDisplay, setNotDisplay] = useState(false);
   const [showSidebar, setSideBar] = useState(false);
   const handleButtonClick = () => {
@@ -18,14 +20,17 @@ function App() {
     <Grid templateAreas={gridTemplateAreas} templateColumns="200px 1fr" gap={2}>
       {showSidebar && (
         <GridItem area="sidebar" colSpan={1} paddingX={5}>
-          <SideBar onClick={handleButtonClick} />
+          <SideBar
+            onSelectGenre={(genre) => setSelectedGenre(genre)}
+            onClick={handleButtonClick}
+          />
         </GridItem>
       )}
       <GridItem area="nav">
         <NavBar onClick={handleButtonClick} isNotDisplay={isNotDisplay} />
       </GridItem>
       <GridItem padding={35} area="main">
-        <GameGrid />
+        <GameGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>
   );
