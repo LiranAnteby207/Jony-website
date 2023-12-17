@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, HStack } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem } from "@chakra-ui/react";
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
@@ -14,6 +14,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -69,7 +70,11 @@ function App() {
               }
             />
           </Box>
-          <SearchInput />
+          <SearchInput
+            onSerach={(searchText) =>
+              setGameQuery({ ...gameQuery, searchText })
+            }
+          />
         </Flex>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
