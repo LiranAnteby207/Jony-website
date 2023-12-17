@@ -5,8 +5,12 @@ import SideBar from "./components/SideBar";
 import GameGrid from "./components/GameGrid";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
+import { Platform } from "./hooks/useGames";
 
 function App() {
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
   const [isNotDisplay, setNotDisplay] = useState(false);
   const [showSidebar, setSideBar] = useState(false);
@@ -32,8 +36,14 @@ function App() {
         <NavBar onClick={handleButtonClick} isNotDisplay={isNotDisplay} />
       </GridItem>
       <GridItem padding={35} area="main">
-        <PlatformSelector />
-        <GameGrid selectedGenre={selectedGenre} />
+        <PlatformSelector
+          selectedPlatform={selectedPlatform}
+          onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+        />
+        <GameGrid
+          selectedPlatform={selectedPlatform}
+          selectedGenre={selectedGenre}
+        />
       </GridItem>
     </Grid>
   );
