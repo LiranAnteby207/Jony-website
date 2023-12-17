@@ -60,7 +60,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
         {selectedPlatform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
-        {data.map((platform) => (
+        {data?.results.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}
             key={platform.id}
@@ -72,7 +72,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
                 color="gray.500"
                 title={platform.slug}
               />
-              <Text>{platform.slug}</Text>
+              <Text>{platform.name}</Text>
             </HStack>
           </MenuItem>
         ))}
