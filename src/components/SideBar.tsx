@@ -7,7 +7,7 @@ interface Props {
 const SideBar = ({ onClick }: Props) => {
   return (
     <>
-      <HStack justifyContent="space-between" padding="10px">
+      <HStack justifyContent="space-between" width="250px">
         <Button onClick={onClick}>x</Button>
         <ColorModeSwitch />
       </HStack>
