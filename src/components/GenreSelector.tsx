@@ -24,7 +24,7 @@ const GenreSelector = ({ onSelectGenre, selectedGenre }: Props) => {
         {selectedGenre?.name || "Genres"}
       </MenuButton>
       <MenuList>
-        {data.map((genre) => (
+        {data?.results.map((genre) => (
           <MenuItem onClick={() => onSelectGenre(genre)} key={genre.id}>
             <HStack>
               <Image
