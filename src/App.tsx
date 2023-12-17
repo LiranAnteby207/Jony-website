@@ -7,6 +7,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/useGames";
 import GenreSelector from "./components/GenreSelector";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -35,7 +36,7 @@ function App() {
         <NavBar onClick={handleButtonClick} isNotDisplay={isNotDisplay} />
       </GridItem>
       <GridItem padding={35} area="main">
-        <HStack>
+        <HStack spacing={1} paddingLeft={1} marginBottom={3}>
           <GenreSelector
             selectedGenre={gameQuery.genre}
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
@@ -46,6 +47,7 @@ function App() {
               setGameQuery({ ...gameQuery, platform })
             }
           />
+          <SortSelector />
         </HStack>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
