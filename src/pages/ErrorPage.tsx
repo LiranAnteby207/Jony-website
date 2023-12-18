@@ -1,16 +1,16 @@
-import React from "react";
-import NavBar from "../components/NavBar";
-import { Outlet } from "react-router-dom";
+import { Box, GridItem, Heading, Text, useColorMode } from "@chakra-ui/react";
+import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 import useSideBarStore from "../sidebarStore";
-import { Grid, GridItem, useColorMode } from "@chakra-ui/react";
+import NavBar from "../components/NavBar";
 import SideBar from "../components/SideBar";
 
-const Layout = () => {
+const ErrorPage = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
   const { colorMode } = useColorMode();
 
+  const error = useRouteError();
   return (
-    <Grid>
+    <>
       <NavBar />
       {showSidebar && (
         <GridItem
@@ -26,9 +26,16 @@ const Layout = () => {
           <SideBar />
         </GridItem>
       )}
-      <Outlet />
-    </Grid>
+      <Box padding={5}>
+        <Heading>Oops</Heading>
+        <Text>
+          {isRouteErrorResponse(error)
+            ? "This page does not exist"
+            : " An unexpected error accurred."}
+        </Text>
+      </Box>
+    </>
   );
 };
 
-export default Layout;
+export default ErrorPage;
