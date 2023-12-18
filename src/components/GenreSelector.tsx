@@ -12,11 +12,11 @@ import { BsChevronDown } from "react-icons/bs";
 import useGenres, { Genre } from "../hooks/useGenres";
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
-const GenreSelector = ({ onSelectGenre, selectedGenre }: Props) => {
+const GenreSelector = ({ onSelectGenre, selectedGenreId }: Props) => {
   const { data, error } = useGenres();
-
+  const selectedGenre = data?.results.find((g) => g.id === selectedGenreId);
   if (error) return null;
   return (
     <Menu>

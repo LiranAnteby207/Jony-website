@@ -3,16 +3,14 @@ import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import GameGrid from "./components/GameGrid";
-import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
-import { Platform } from "./hooks/useGames";
 import GenreSelector from "./components/GenreSelector";
 import SortSelector from "./components/SortSelector";
 import SearchInput from "./components/SearchInput";
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -49,15 +47,17 @@ function App() {
         <Flex marginBottom={3}>
           <Box marginRight={2}>
             <GenreSelector
-              selectedGenre={gameQuery.genre}
-              onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+              selectedGenreId={gameQuery.genreId}
+              onSelectGenre={(genre) =>
+                setGameQuery({ ...gameQuery, genreId: genre.id })
+              }
             />
           </Box>
           <Box marginRight={2}>
             <PlatformSelector
-              selectedPlatform={gameQuery.platform}
+              selectedPlatformId={gameQuery.platformId}
               onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
+                setGameQuery({ ...gameQuery, platformId: platform.id })
               }
             />
           </Box>

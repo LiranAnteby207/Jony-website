@@ -32,9 +32,9 @@ import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
-const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
@@ -52,7 +52,9 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
     "neo-geo": FaNeos,
   };
   const { data, error } = usePlatforms();
-
+  const selectedPlatform = data?.results.find(
+    (p) => p.id === selectedPlatformId
+  );
   if (error) return null;
   return (
     <Menu>
