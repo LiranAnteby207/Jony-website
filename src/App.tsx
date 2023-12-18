@@ -1,5 +1,4 @@
 import { Box, Flex, Grid, GridItem, useColorMode } from "@chakra-ui/react";
-import { useState } from "react";
 import NavBar from "./components/NavBar";
 import SideBar from "./components/SideBar";
 import GameGrid from "./components/GameGrid";
@@ -7,10 +6,13 @@ import PlatformSelector from "./components/PlatformSelector";
 import GenreSelector from "./components/GenreSelector";
 import SortSelector from "./components/SortSelector";
 import SearchInput from "./components/SearchInput";
+import useSideBarStore from "./sidebarStore";
 
 function App() {
-  const [showSidebar, setSideBar] = useState(false);
+  const showSidebar = useSideBarStore((s) => s.showSidebar);
+  const setSidebar = useSideBarStore((s) => s.setShowSidebar);
   const { colorMode } = useColorMode();
+
   return (
     <Grid templateAreas={`"nav" "main"`} templateColumns="1fr" gap={2}>
       {showSidebar && (
@@ -24,14 +26,11 @@ function App() {
           zIndex={1}
           paddingRight={2}
         >
-          <SideBar onClick={() => setSideBar(!showSidebar)} />
+          <SideBar />
         </GridItem>
       )}
       <GridItem area="nav">
-        <NavBar
-          onClick={() => setSideBar(!showSidebar)}
-          isNotDisplay={showSidebar}
-        />
+        <NavBar />
       </GridItem>
       <GridItem padding={35} area="main">
         <Flex marginBottom={3}>
@@ -57,7 +56,7 @@ function App() {
           bottom={0}
           bg="rgba(0, 0, 0, 0.5)"
           zIndex={0}
-          onClick={() => setSideBar(!showSidebar)}
+          onClick={setSidebar}
         />
       )}
     </Grid>

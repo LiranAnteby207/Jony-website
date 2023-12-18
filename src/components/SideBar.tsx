@@ -1,14 +1,13 @@
 import { Button, HStack, Heading } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
+import useSideBarStore from "../sidebarStore";
 
-interface Props {
-  onClick: () => void;
-}
-const SideBar = ({ onClick }: Props) => {
+const SideBar = () => {
+  const setShowSideBar = useSideBarStore((s) => s.setShowSidebar);
   return (
     <>
       <HStack justifyContent="space-between" width="250px">
-        <Button onClick={onClick}>x</Button>
+        <Button onClick={setShowSideBar}>x</Button>
         <ColorModeSwitch />
       </HStack>
       <Heading>liran</Heading>
