@@ -8,21 +8,8 @@ import GenreSelector from "./components/GenreSelector";
 import SortSelector from "./components/SortSelector";
 import SearchInput from "./components/SearchInput";
 
-export interface GameQuery {
-  genreId?: number;
-  platformId?: number;
-  sortOrder: string;
-  searchText: string;
-}
-
 function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
-  const [isNotDisplay, setNotDisplay] = useState(false);
   const [showSidebar, setSideBar] = useState(false);
-  const handleButtonClick = () => {
-    setSideBar(!showSidebar);
-    setNotDisplay(!isNotDisplay);
-  };
   const { colorMode } = useColorMode();
   return (
     <Grid templateAreas={`"nav" "main"`} templateColumns="1fr" gap={2}>
@@ -37,45 +24,29 @@ function App() {
           zIndex={1}
           paddingRight={2}
         >
-          <SideBar onClick={handleButtonClick} />
+          <SideBar onClick={() => setSideBar(!showSidebar)} />
         </GridItem>
       )}
       <GridItem area="nav">
-        <NavBar onClick={handleButtonClick} isNotDisplay={isNotDisplay} />
+        <NavBar
+          onClick={() => setSideBar(!showSidebar)}
+          isNotDisplay={showSidebar}
+        />
       </GridItem>
       <GridItem padding={35} area="main">
         <Flex marginBottom={3}>
           <Box marginRight={2}>
-            <GenreSelector
-              selectedGenreId={gameQuery.genreId}
-              onSelectGenre={(genre) =>
-                setGameQuery({ ...gameQuery, genreId: genre.id })
-              }
-            />
+            <GenreSelector />
           </Box>
           <Box marginRight={2}>
-            <PlatformSelector
-              selectedPlatformId={gameQuery.platformId}
-              onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platformId: platform.id })
-              }
-            />
+            <PlatformSelector />
           </Box>
           <Box marginRight={2}>
-            <SortSelector
-              sortOrder={gameQuery.sortOrder}
-              onSelectSortOrder={(sortOrder) =>
-                setGameQuery({ ...gameQuery, sortOrder })
-              }
-            />
+            <SortSelector />
           </Box>
-          <SearchInput
-            onSerach={(searchText) =>
-              setGameQuery({ ...gameQuery, searchText })
-            }
-          />
+          <SearchInput />
         </Flex>
-        <GameGrid gameQuery={gameQuery} />
+        <GameGrid />
       </GridItem>
       {showSidebar && (
         <Box
@@ -86,7 +57,7 @@ function App() {
           bottom={0}
           bg="rgba(0, 0, 0, 0.5)"
           zIndex={0}
-          onClick={handleButtonClick}
+          onClick={() => setSideBar(!showSidebar)}
         />
       )}
     </Grid>

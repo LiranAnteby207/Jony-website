@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
-import { Platform } from "../hooks/useGames";
 import {
   FaWindows,
   FaPlaystation,
@@ -31,11 +30,9 @@ import {
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import usePlatform from "../hooks/usePlatform";
-interface Props {
-  onSelectPlatform: (platform: Platform) => void;
-  selectedPlatformId?: number;
-}
-const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
+import useGameQueryStore from "../store";
+
+const PlatformSelector = () => {
   const iconMap: { [key: string]: IconType } = {
     pc: FaWindows,
     playstation: FaPlaystation,
@@ -53,6 +50,8 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
     "neo-geo": FaNeos,
   };
   const { data, error } = usePlatforms();
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
   const platform = usePlatform(selectedPlatformId);
   if (error) return null;
   return (
@@ -63,7 +62,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
       <MenuList>
         {data?.results.map((platform) => (
           <MenuItem
-            onClick={() => onSelectPlatform(platform)}
+            onClick={() => setSelectedPlatformId(platform.id)}
             key={platform.id}
           >
             <HStack>
