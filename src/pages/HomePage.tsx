@@ -1,20 +1,19 @@
-import { Box, Flex, Grid, GridItem, useColorMode } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-import SideBar from "./components/SideBar";
-import GameGrid from "./components/GameGrid";
-import PlatformSelector from "./components/PlatformSelector";
-import GenreSelector from "./components/GenreSelector";
-import SortSelector from "./components/SortSelector";
-import SearchInput from "./components/SearchInput";
-import useSideBarStore from "./sidebarStore";
+import { Grid, GridItem, Flex, Box, useColorMode } from "@chakra-ui/react";
+import GameGrid from "../components/GameGrid";
+import GenreSelector from "../components/GenreSelector";
+import PlatformSelector from "../components/PlatformSelector";
+import SearchInput from "../components/SearchInput";
+import SideBar from "../components/SideBar";
+import SortSelector from "../components/SortSelector";
+import useSideBarStore from "../sidebarStore";
 
-function App() {
+const HomePage = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
   const setSidebar = useSideBarStore((s) => s.setShowSidebar);
   const { colorMode } = useColorMode();
 
   return (
-    <Grid templateAreas={`"nav" "main"`} templateColumns="1fr" gap={2}>
+    <Grid templateAreas={`"main"`} templateColumns="1fr" gap={2}>
       {showSidebar && (
         <GridItem
           area="sidebar"
@@ -29,9 +28,6 @@ function App() {
           <SideBar />
         </GridItem>
       )}
-      <GridItem area="nav">
-        <NavBar />
-      </GridItem>
       <GridItem padding={35} area="main">
         <Flex marginBottom={3}>
           <Box marginRight={2}>
@@ -61,6 +57,6 @@ function App() {
       )}
     </Grid>
   );
-}
+};
 
-export default App;
+export default HomePage;
