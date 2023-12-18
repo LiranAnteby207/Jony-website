@@ -1,4 +1,8 @@
-export default [
+export default {
+  "count": 14,
+  "next": null,
+  "previous": null,
+  "results": [
     {
       "id": 1,
       "name": "PC",
@@ -8,8 +12,8 @@ export default [
           "id": 4,
           "name": "PC",
           "slug": "pc",
-          "games_count": 523260,
-          "image_background": "https://media.rawg.io/media/games/fc1/fc1307a2774506b5bd65d7e8424664a7.jpg",
+          "games_count": 523356,
+          "image_background": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
           "image": null,
           "year_start": null,
           "year_end": null
@@ -183,8 +187,8 @@ export default [
           "id": 5,
           "name": "macOS",
           "slug": "macos",
-          "games_count": 103098,
-          "image_background": "https://media.rawg.io/media/games/737/737ea5662211d2e0bbd6f5989189e4f1.jpg",
+          "games_count": 103114,
+          "image_background": "https://media.rawg.io/media/games/bc0/bc06a29ceac58652b684deefe7d56099.jpg",
           "image": null,
           "year_start": null,
           "year_end": null
@@ -220,8 +224,8 @@ export default [
           "id": 6,
           "name": "Linux",
           "slug": "linux",
-          "games_count": 76212,
-          "image_background": "https://media.rawg.io/media/games/6c5/6c55e22185876626881b76c11922b073.jpg",
+          "games_count": 76228,
+          "image_background": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg",
           "image": null,
           "year_start": null,
           "year_end": null
@@ -247,8 +251,8 @@ export default [
           "id": 8,
           "name": "Nintendo 3DS",
           "slug": "nintendo-3ds",
-          "games_count": 1693,
-          "image_background": "https://media.rawg.io/media/games/041/041026016869e440fb1fb2b6be5222c4.jpg",
+          "games_count": 1694,
+          "image_background": "https://media.rawg.io/media/screenshots/a8c/a8cd58ee985ab6d509370bddada91dbd.jpeg",
           "image": null,
           "year_start": null,
           "year_end": null
@@ -317,8 +321,8 @@ export default [
           "id": 24,
           "name": "Game Boy Advance",
           "slug": "game-boy-advance",
-          "games_count": 954,
-          "image_background": "https://media.rawg.io/media/screenshots/a35/a357dd9b955fd12f9363c6d45fcd4f86.jpg",
+          "games_count": 955,
+          "image_background": "https://media.rawg.io/media/games/98c/98c87b286cd2a2ba942167df384a9bd3.jpg",
           "image": null,
           "year_start": null,
           "year_end": null
@@ -337,8 +341,8 @@ export default [
           "id": 26,
           "name": "Game Boy",
           "slug": "game-boy",
-          "games_count": 606,
-          "image_background": "https://media.rawg.io/media/games/c04/c042aa4255f03cd72f9642b3dea18741.jpg",
+          "games_count": 607,
+          "image_background": "https://media.rawg.io/media/screenshots/a7f/a7f3cb62af2ee95d92065da88583338b.jpg",
           "image": null,
           "year_start": null,
           "year_end": null
@@ -608,3 +612,4 @@ export default [
       ]
     }
   ]
+}

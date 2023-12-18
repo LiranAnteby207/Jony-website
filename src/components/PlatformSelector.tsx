@@ -30,6 +30,7 @@ import {
 } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
+import usePlatform from "../hooks/usePlatform";
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
   selectedPlatformId?: number;
@@ -52,14 +53,12 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatformId }: Props) => {
     "neo-geo": FaNeos,
   };
   const { data, error } = usePlatforms();
-  const selectedPlatform = data?.results.find(
-    (p) => p.id === selectedPlatformId
-  );
+  const platform = usePlatform(selectedPlatformId);
   if (error) return null;
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedPlatform?.name || "Platforms"}
+        {platform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
         {data?.results.map((platform) => (
