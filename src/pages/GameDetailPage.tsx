@@ -1,7 +1,4 @@
-import React from "react";
-import useSideBarStore from "../sidebarStore";
-import { Grid, GridItem, Heading, useColorMode } from "@chakra-ui/react";
-import SideBar from "../components/SideBar";
+import { Grid, GridItem, Heading } from "@chakra-ui/react";
 
 const GameDetailPage = () => {
   return (
