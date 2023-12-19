@@ -1,4 +1,4 @@
-import { Button, HStack, Heading, Icon, Image, Text } from "@chakra-ui/react";
+import { Button, HStack, Heading, Icon, Image } from "@chakra-ui/react";
 import EnFlag from "../assets/united-kingdom.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineSupportAgent } from "react-icons/md";

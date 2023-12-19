@@ -3,7 +3,7 @@ import { GrGamepad } from "react-icons/gr";
 import { GiPokerHand } from "react-icons/gi";
 import { IoTrophySharp } from "react-icons/io5";
 import { FaGift } from "react-icons/fa6";
-import { Box, Button, HStack, Icon, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Icon } from "@chakra-ui/react";
 
 const NavbarMenu = () => {
   const menuElements: { [key: string]: IconType } = {
