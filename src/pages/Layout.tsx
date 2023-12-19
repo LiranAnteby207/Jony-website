@@ -1,8 +1,8 @@
-import NavBar from "../components/NavBar";
+import NavBar from "../components/navbar/NavBar";
 import { Outlet } from "react-router-dom";
 import useSideBarStore from "../sidebarStore";
 import { Grid, GridItem, useColorMode } from "@chakra-ui/react";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/sidebar/SideBar";
 
 const Layout = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);

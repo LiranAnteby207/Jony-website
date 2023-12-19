@@ -1,16 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import { Carousel } from "react-bootstrap";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, useBreakpointValue } from "@chakra-ui/react";
 import { useState } from "react";
-import "../style.css";
-import greenBackground from "../assets/green-backgrounds.jpg";
-import purpleBackgruond from "../assets/purple-and-blue-background.jpg";
+import "../../style.css";
+import greenBackground from "../../assets/green-backgrounds.jpg";
+import purpleBackgruond from "../../assets/purple-and-blue-background.jpg";
 import {
   CorouselCaptionManHoldingMoney,
   CorouselCaptionMoneyTrophy,
   CorouselCaptionZues,
 } from "./CorouselCaption";
-import useSideBarStore from "../sidebarStore";
+import useSideBarStore from "../../sidebarStore";
 const Corousel = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
   const [index, setIndex] = useState(0);
@@ -18,7 +18,11 @@ const Corousel = () => {
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
   };
-
+  const isLargeDevice = useBreakpointValue({
+    base: false,
+    md: false,
+    lg: true,
+  });
   return (
     <Carousel
       activeIndex={index}
@@ -26,7 +30,7 @@ const Corousel = () => {
       style={{
         backgroundColor: "gray",
         borderRadius: "300px",
-        width: "75%",
+        width: isLargeDevice ? "80%" : "100%",
         marginBottom: "2%",
       }}
       controls={!showSidebar}
@@ -35,7 +39,7 @@ const Corousel = () => {
       <Carousel.Item className="custom-carousel-item">
         <Box
           width="100%"
-          height="350px"
+          height="300px"
           borderRadius={30}
           overflow="hidden"
           position="relative"
@@ -54,7 +58,7 @@ const Corousel = () => {
       <Carousel.Item className="custom-carousel-item">
         <Box
           width="100%"
-          height="350px"
+          height="300px"
           borderRadius={30}
           overflow="hidden"
           position="relative"
@@ -72,7 +76,7 @@ const Corousel = () => {
       <Carousel.Item className="custom-carousel-item">
         <Box
           width="100%"
-          height="350px"
+          height="300px"
           borderRadius={30}
           overflow="hidden"
           position="relative"

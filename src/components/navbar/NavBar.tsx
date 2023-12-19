@@ -7,8 +7,8 @@ import {
   useBreakpointValue,
   useColorMode,
 } from "@chakra-ui/react";
-import logo from "../assets/logo.png";
-import useSideBarStore from "../sidebarStore";
+import logo from "../../assets/logo.png";
+import useSideBarStore from "../../sidebarStore";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import NavbarMenu from "./NavbarMenu";
 import NavbarLogSign from "./NavbarLogSign";

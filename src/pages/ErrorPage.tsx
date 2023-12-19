@@ -1,8 +1,8 @@
 import { Box, GridItem, Heading, Text, useColorMode } from "@chakra-ui/react";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 import useSideBarStore from "../sidebarStore";
-import NavBar from "../components/NavBar";
-import SideBar from "../components/SideBar";
+import NavBar from "../components/navbar/NavBar";
+import SideBar from "../components/sidebar/SideBar";
 
 const ErrorPage = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);

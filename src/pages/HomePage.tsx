@@ -1,12 +1,20 @@
-import { Grid, GridItem, Flex, Box, useColorMode } from "@chakra-ui/react";
+import {
+  Grid,
+  GridItem,
+  Flex,
+  Box,
+  useColorMode,
+  HStack,
+} from "@chakra-ui/react";
 import GameGrid from "../components/GameGrid";
 import GenreSelector from "../components/GenreSelector";
 import PlatformSelector from "../components/PlatformSelector";
 import SearchInput from "../components/SearchInput";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/sidebar/SideBar";
 import SortSelector from "../components/SortSelector";
 import useSideBarStore from "../sidebarStore";
-import Corousel from "../components/Corousel";
+import Corousel from "../components/corousel/Corousel";
+import RightOfCorousel from "../components/corousel/RightOfCorousel";
 
 const HomePage = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
@@ -30,7 +38,10 @@ const HomePage = () => {
         </GridItem>
       )}
       <GridItem padding={35} area="main">
-        <Corousel />
+        <HStack>
+          <Corousel />
+          <RightOfCorousel />
+        </HStack>
         <Flex marginBottom={3}>
           <Box marginRight={2}>
             <GenreSelector />

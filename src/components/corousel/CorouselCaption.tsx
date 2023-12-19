@@ -1,10 +1,10 @@
 import { HStack, Heading, Box, Image, Text, Button } from "@chakra-ui/react";
-import zues from "../assets/zeusImage.png";
-import dropWins from "../assets/drops002.png";
-import manMoney from "../assets/manHoldingMoney.png";
-import textForMan from "../assets/newfreetexten.png";
-import moneyTrophy from "../assets/cadOfMoney.png";
-import textMoneyTrophy from "../assets/tonOfMoney.png";
+import zues from "../../assets/zeusImage.png";
+import dropWins from "../../assets/drops002.png";
+import manMoney from "../../assets/manHoldingMoney.png";
+import textForMan from "../../assets/newfreetexten.png";
+import moneyTrophy from "../../assets/cadOfMoney.png";
+import textMoneyTrophy from "../../assets/tonOfMoney.png";
 export const CorouselCaptionZues = () => {
   return (
     <HStack height="100%">
