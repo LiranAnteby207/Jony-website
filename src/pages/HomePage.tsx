@@ -6,6 +6,7 @@ import SearchInput from "../components/SearchInput";
 import SideBar from "../components/SideBar";
 import SortSelector from "../components/SortSelector";
 import useSideBarStore from "../sidebarStore";
+import Corousel from "../components/Corousel";
 
 const HomePage = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
@@ -29,6 +30,7 @@ const HomePage = () => {
         </GridItem>
       )}
       <GridItem padding={35} area="main">
+        <Corousel />
         <Flex marginBottom={3}>
           <Box marginRight={2}>
             <GenreSelector />
