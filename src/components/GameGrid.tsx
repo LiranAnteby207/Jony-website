@@ -17,7 +17,7 @@ const GameGrid = () => {
   const skeletons = [1, 2, 3, 4, 5, 6];
   if (error) return <Text>{error.message}</Text>;
   return (
-    <Box padding="10px">
+    <Box>
       <SimpleGrid
         columns={{ sm: 2, md: 3, lg: 5, xl: 6 }}
         spacing={1}

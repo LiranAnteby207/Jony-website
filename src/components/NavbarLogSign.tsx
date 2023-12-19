@@ -3,11 +3,11 @@ import { Button, HStack, Text } from "@chakra-ui/react";
 const NavbarLogSign = () => {
   return (
     <HStack>
-      <Button bgColor="yellow.300">
-        <Text>Login</Text>
+      <Button fontWeight="bold" bgColor="red.600">
+        Login
       </Button>
-      <Button bgColor="green.300">
-        <Text>Sign In</Text>
+      <Button fontWeight="bold" bgColor="gray.400">
+        Sign In
       </Button>
     </HStack>
   );

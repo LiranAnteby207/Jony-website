@@ -19,7 +19,7 @@ const NavbarMenu = () => {
         <Box key={e} ml={4}>
           <Button bgColor="transparent" width="100%">
             <Icon boxSize="60%" key={e} as={menuElements[e]} marginRight="6%" />
-            <Text fontSize="100%">{e}</Text>
+            {e}
           </Button>
         </Box>
       ))}
