@@ -45,7 +45,17 @@ const NavBar = () => {
           )}
 
           <Box maxW="7%" ml="auto">
-            <Image src={logo} objectFit="cover" w="100%" h="100%" />
+            <Image
+              style={
+                colorMode === "dark"
+                  ? { filter: "brightness(170%)" }
+                  : { filter: "brightness(100%)" }
+              }
+              src={logo}
+              objectFit="cover"
+              w="100%"
+              h="100%"
+            />
           </Box>
           <NavbarMenu />
           <Box ml="auto">
