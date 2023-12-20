@@ -1,12 +1,12 @@
 import {
   Button,
   HStack,
+  Heading,
   Icon,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import usePlatforms from "../hooks/usePlatforms";
@@ -72,7 +72,9 @@ const PlatformSelector = () => {
                 color="gray.500"
                 title={platform.slug}
               />
-              <Text>{platform.name}</Text>
+              <Heading fontSize={18} fontWeight="regular">
+                {platform.name}
+              </Heading>
             </HStack>
           </MenuItem>
         ))}

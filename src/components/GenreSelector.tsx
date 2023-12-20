@@ -1,12 +1,12 @@
 import {
   Button,
   HStack,
+  Heading,
   Image,
   Menu,
   MenuButton,
   MenuItem,
   MenuList,
-  Text,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 import useGenres from "../hooks/useGenres";
@@ -33,7 +33,9 @@ const GenreSelector = () => {
                 objectFit="cover"
                 src={genre.image_background}
               />
-              <Text>{genre.name}</Text>
+              <Heading fontSize={18} fontWeight="regular">
+                {genre.name}
+              </Heading>
             </HStack>
           </MenuItem>
         ))}
