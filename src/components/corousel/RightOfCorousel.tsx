@@ -8,53 +8,61 @@ import {
   Heading,
   Image,
   useBreakpointValue,
+  useColorMode,
 } from "@chakra-ui/react";
 
 const RightOfCorousel = () => {
+  const { colorMode } = useColorMode();
   const isLargeDevice = useBreakpointValue({
     base: false,
     md: false,
     lg: true,
   });
+  const elements = [
+    {
+      name: "icon of man",
+      icon: manIcon,
+      heading: "Online Players",
+      second: "2000",
+    },
+    {
+      name: "money bag",
+      icon: moneyBag,
+      heading: "Average Withdrawal Time",
+      second: "17 min 09 sec",
+    },
+    {
+      name: "dart board",
+      icon: bullseye,
+      heading: "Top Win Today",
+      second: "18 654$",
+    },
+    {
+      name: "dollar medal",
+      icon: dollarMedal,
+      heading: "Tournaments prize pool",
+      second: "11 728 428$",
+    },
+  ];
   if (isLargeDevice)
     return (
       <Box width="20%" height="100%" borderRadius={10} marginBottom="2%">
-        <HStack mb={3} borderTopRadius={10} bgColor="gray.700">
-          <Image m={3} boxSize={10} src={manIcon} alt="icon of man" />
-          <Box>
-            <Heading fontSize={15} color="gray.300">
-              Online Players
-            </Heading>
-            <Heading fontSize={15}>2000</Heading>
-          </Box>
-        </HStack>
-        <HStack mb={3} bgColor="gray.700">
-          <Image m={3} src={moneyBag} boxSize={10} alt="money bag" />
-          <Box>
-            <Heading fontSize={15} color="gray.300">
-              Average Withdrawal Time
-            </Heading>
-            <Heading fontSize={15}>17 min 09 sec</Heading>
-          </Box>
-        </HStack>
-        <HStack mb={3} bgColor="gray.700">
-          <Image m={3} src={bullseye} boxSize={10} alt="dart board" />
-          <Box>
-            <Heading fontSize={15} color="gray.300">
-              Top Win Today
-            </Heading>
-            <Heading fontSize={15}>18 654$</Heading>
-          </Box>
-        </HStack>
-        <HStack borderBottomRadius={10} bgColor="gray.700">
-          <Image m={3} src={dollarMedal} boxSize={10} alt="dollar medal" />
-          <Box>
-            <Heading fontSize={15} color="gray.300">
-              Tournaments prize pool
-            </Heading>
-            <Heading fontSize={15}>11 728 428$</Heading>
-          </Box>
-        </HStack>
+        {elements.map((e) => (
+          <HStack
+            mb={3}
+            borderBottomRadius={e.name === "dollar medal" ? 10 : 0}
+            borderTopRadius={e.name === "icon of man" ? 10 : 0}
+            bgColor={colorMode === "dark" ? "gray.700" : "gray.100"}
+          >
+            <Image m={3} boxSize={10} src={e.icon} alt={e.name} />
+            <Box>
+              <Heading fontSize={15} color="gray.300">
+                {e.heading}
+              </Heading>
+              <Heading fontSize={15}>{e.second}</Heading>
+            </Box>
+          </HStack>
+        ))}
       </Box>
     );
   else return <></>;

@@ -19,9 +19,9 @@ const GameGrid = () => {
   return (
     <Box>
       <SimpleGrid
-        columns={{ sm: 2, md: 3, lg: 5, xl: 6 }}
+        columns={{ sm: 3, md: 3, lg: 5, xl: 6 }}
         spacing={1}
-        minChildWidth={{ sm: "165px", md: "165px", lg: "250px" }}
+        minChildWidth={{ sm: "30px", md: "200px", lg: "250px" }}
       >
         {isLoading &&
           skeletons.map((skeleton) => (

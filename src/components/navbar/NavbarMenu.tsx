@@ -18,7 +18,7 @@ const NavbarMenu = () => {
       {menuNames.map((e) => (
         <Box key={e} ml={4}>
           <Button bgColor="transparent" width="100%">
-            <Icon boxSize="60%" key={e} as={menuElements[e]} marginRight="6%" />
+            <Icon boxSize="50%" key={e} as={menuElements[e]} marginRight="1%" />
             {e}
           </Button>
         </Box>
