@@ -1,5 +1,5 @@
 import { Card, Image } from "@chakra-ui/react";
-import { Game } from "../hooks/useGames";
+import { Game } from "./entities/Game";
 import noImage from "../assets/no-image-placeholder-6f3882e0.webp";
 import getCroppedImageUrl from "../services/image-url";
 interface Props {
