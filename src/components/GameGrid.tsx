@@ -14,15 +14,11 @@ const GameGrid = () => {
     fetchNextPage,
     hasNextPage,
   } = useGames();
-  const skeletons = [1, 2, 3, 4, 5, 6];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
   if (error) return <Text>{error.message}</Text>;
   return (
     <Box>
-      <SimpleGrid
-        columns={{ sm: 3, md: 3, lg: 5, xl: 6 }}
-        spacing={1}
-        minChildWidth={{ sm: "30px", md: "200px", lg: "250px" }}
-      >
+      <SimpleGrid columns={{ base: 2, md: 3, lg: 5 }} spacing={2}>
         {isLoading &&
           skeletons.map((skeleton) => (
             <GameCardContainer key={skeleton}>

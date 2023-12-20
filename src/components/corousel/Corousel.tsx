@@ -23,6 +23,9 @@ const Corousel = () => {
     md: false,
     lg: true,
   });
+  const [isHoveredZues, setIsHoveredZues] = useState(false);
+  const [isHoveredMan, setIsHoveredMan] = useState(false);
+  const [isHoveredMoney, setIsHoveredMoney] = useState(false);
   return (
     <Carousel
       activeIndex={index}
@@ -36,7 +39,11 @@ const Corousel = () => {
       controls={!showSidebar}
       indicators={false}
     >
-      <Carousel.Item className="custom-carousel-item">
+      <Carousel.Item
+        onMouseEnter={() => setIsHoveredMan(true)}
+        onMouseLeave={() => setIsHoveredMan(false)}
+        className="custom-carousel-item"
+      >
         <Box
           width="100%"
           height="300px"
@@ -50,12 +57,16 @@ const Corousel = () => {
             className="carousel-background-image"
           />
           <Carousel.Caption className="custom-caption" style={{ padding: 0 }}>
-            <CorouselCaptionManHoldingMoney />
+            <CorouselCaptionManHoldingMoney isHoverd={isHoveredMan} />
           </Carousel.Caption>
         </Box>
       </Carousel.Item>
 
-      <Carousel.Item className="custom-carousel-item">
+      <Carousel.Item
+        onMouseEnter={() => setIsHoveredZues(true)}
+        onMouseLeave={() => setIsHoveredZues(false)}
+        className="custom-carousel-item"
+      >
         <Box
           width="100%"
           height="300px"
@@ -69,11 +80,15 @@ const Corousel = () => {
             className="carousel-background-image"
           />
           <Carousel.Caption className="custom-caption" style={{ padding: 0 }}>
-            <CorouselCaptionZues />
+            <CorouselCaptionZues isHoverd={isHoveredZues} />
           </Carousel.Caption>
         </Box>
       </Carousel.Item>
-      <Carousel.Item className="custom-carousel-item">
+      <Carousel.Item
+        onMouseEnter={() => setIsHoveredMoney(true)}
+        onMouseLeave={() => setIsHoveredMoney(false)}
+        className="custom-carousel-item"
+      >
         <Box
           width="100%"
           height="300px"
@@ -87,7 +102,7 @@ const Corousel = () => {
             className="carousel-background-image"
           />
           <Carousel.Caption className="custom-caption" style={{ padding: 0 }}>
-            <CorouselCaptionMoneyTrophy />
+            <CorouselCaptionMoneyTrophy isHoverd={isHoveredMoney} />
           </Carousel.Caption>
         </Box>
       </Carousel.Item>

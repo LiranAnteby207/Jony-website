@@ -12,6 +12,7 @@ import useSideBarStore from "../../sidebarStore";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import NavbarMenu from "./NavbarMenu";
 import NavbarLogSign from "./NavbarLogSign";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const showSideBar = useSideBarStore((s) => s.showSidebar);
@@ -45,17 +46,19 @@ const NavBar = () => {
           )}
 
           <Box maxW="7%" ml="auto">
-            <Image
-              style={
-                colorMode === "dark"
-                  ? { filter: "brightness(170%)" }
-                  : { filter: "brightness(100%)" }
-              }
-              src={logo}
-              objectFit="cover"
-              w="100%"
-              h="100%"
-            />
+            <Link to="/">
+              <Image
+                style={
+                  colorMode === "dark"
+                    ? { filter: "brightness(170%)" }
+                    : { filter: "brightness(100%)" }
+                }
+                src={logo}
+                objectFit="cover"
+                w="100%"
+                h="100%"
+              />
+            </Link>
           </Box>
           <NavbarMenu />
           <Box ml="auto">
@@ -73,7 +76,19 @@ const NavBar = () => {
             )}
 
             <Box maxW="12%" ml="auto">
-              <Image src={logo} objectFit="cover" w="100%" h="100%" />
+              <Link to="/">
+                <Image
+                  style={
+                    colorMode === "dark"
+                      ? { filter: "brightness(170%)" }
+                      : { filter: "brightness(100%)" }
+                  }
+                  src={logo}
+                  objectFit="cover"
+                  w="100%"
+                  h="100%"
+                />
+              </Link>
             </Box>
 
             <Box ml="auto">
@@ -94,7 +109,19 @@ const NavBar = () => {
           )}
 
           <Box maxW="20%" ml="auto">
-            <Image src={logo} objectFit="cover" w="100%" h="100%" />
+            <Link to="/">
+              <Image
+                style={
+                  colorMode === "dark"
+                    ? { filter: "brightness(170%)" }
+                    : { filter: "brightness(100%)" }
+                }
+                src={logo}
+                objectFit="cover"
+                w="100%"
+                h="100%"
+              />
+            </Link>
           </Box>
           <Box ml="auto">
             <NavbarLogSign />
