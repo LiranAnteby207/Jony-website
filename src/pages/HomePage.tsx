@@ -20,7 +20,6 @@ const HomePage = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
   const setSidebar = useSideBarStore((s) => s.setShowSidebar);
   const { colorMode } = useColorMode();
-
   return (
     <Grid templateAreas={`"main"`} templateColumns="1fr" gap={2}>
       {showSidebar && (

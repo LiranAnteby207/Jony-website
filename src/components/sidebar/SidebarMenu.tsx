@@ -8,8 +8,8 @@ import {
 } from "react-icons/io5";
 import { FaGift, FaTelegram } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
-import { ImQuestion } from "react-icons/im";
 import { IconType } from "react-icons";
+import ModalComp from "../Modal/Modal";
 
 const SidebarMenu = () => {
   const menuElements: { [key: string]: IconType } = {
@@ -20,7 +20,6 @@ const SidebarMenu = () => {
     Bonuses: FaGift,
     "Hall Of Fame": FaStar,
     News: IoNewspaperOutline,
-    FAQ: ImQuestion,
     "Join Our Channel": FaTelegram,
   };
   const menuNames = [
@@ -31,7 +30,6 @@ const SidebarMenu = () => {
     "Bonuses",
     "Hall Of Fame",
     "News",
-    "FAQ",
     "Join Our Channel",
   ];
 
@@ -56,6 +54,7 @@ const SidebarMenu = () => {
           </Button>
         </Box>
       ))}
+      <ModalComp />
     </Box>
   );
 };
