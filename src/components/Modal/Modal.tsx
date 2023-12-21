@@ -14,8 +14,8 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { ImQuestion } from "react-icons/im";
-import AccordionTopQ from "./AccordionTopQ";
-import AccordionRA from "./AccordionRA";
+import accordionData from "../../data/accordionData";
+import AccordionMaker from "./AccordionMaker";
 
 const ModalComp = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -38,13 +38,12 @@ const ModalComp = () => {
           <ModalContent>
             <ModalHeader>
               <HStack justifyContent="space-between">
-                <Heading fontSize={22}>Frequently asked questions</Heading>
+                <Heading fontSize={30}>Frequently asked questions</Heading>
                 <CloseButton onClick={onClose} />
               </HStack>
             </ModalHeader>
             <ModalBody>
-              <AccordionTopQ />
-              <AccordionRA />
+              <AccordionMaker elements={accordionData} />
             </ModalBody>
             <ModalFooter></ModalFooter>
           </ModalContent>
