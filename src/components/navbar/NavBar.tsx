@@ -8,7 +8,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import logo from "../../assets/logo.png";
-import useSideBarStore from "../../sidebarStore";
+import useSideBarStore from "../../stores/sidebarStore";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 import NavbarMenu from "./NavbarMenu";
 import NavbarLogSign from "./NavbarLogSign";

@@ -12,7 +12,7 @@ import PlatformSelector from "../components/PlatformSelector";
 import SearchInput from "../components/SearchInput";
 import SideBar from "../components/sidebar/SideBar";
 import SortSelector from "../components/SortSelector";
-import useSideBarStore from "../sidebarStore";
+import useSideBarStore from "../stores/sidebarStore";
 import Corousel from "../components/corousel/Corousel";
 import RightOfCorousel from "../components/corousel/RightOfCorousel";
 
@@ -36,7 +36,7 @@ const HomePage = () => {
           <SideBar />
         </GridItem>
       )}
-      <GridItem padding={35} area="main">
+      <GridItem padding={35} mr={10} ml={10} area="main">
         <HStack>
           <Corousel />
           <RightOfCorousel />

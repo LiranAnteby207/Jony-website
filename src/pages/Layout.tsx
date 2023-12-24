@@ -1,8 +1,9 @@
 import NavBar from "../components/navbar/NavBar";
 import { Outlet } from "react-router-dom";
-import useSideBarStore from "../sidebarStore";
+import useSideBarStore from "../stores/sidebarStore";
 import { Grid, GridItem, useColorMode } from "@chakra-ui/react";
 import SideBar from "../components/sidebar/SideBar";
+import DownPage from "../components/downPage/DownPage";
 
 const Layout = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
@@ -26,6 +27,7 @@ const Layout = () => {
         </GridItem>
       )}
       <Outlet />
+      <DownPage />
     </Grid>
   );
 };

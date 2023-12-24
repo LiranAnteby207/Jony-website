@@ -1,6 +1,6 @@
 import { Box, GridItem, Heading, Text, useColorMode } from "@chakra-ui/react";
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
-import useSideBarStore from "../sidebarStore";
+import useSideBarStore from "../stores/sidebarStore";
 import NavBar from "../components/navbar/NavBar";
 import SideBar from "../components/sidebar/SideBar";
 

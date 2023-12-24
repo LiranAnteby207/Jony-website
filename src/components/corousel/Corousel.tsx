@@ -10,7 +10,7 @@ import {
   CorouselCaptionMoneyTrophy,
   CorouselCaptionZues,
 } from "./CorouselCaption";
-import useSideBarStore from "../../sidebarStore";
+import useSideBarStore from "../../stores/sidebarStore";
 const Corousel = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
   const [index, setIndex] = useState(0);

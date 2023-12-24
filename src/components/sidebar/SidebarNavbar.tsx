@@ -1,6 +1,6 @@
 import { HStack, Button, Icon, useColorMode } from "@chakra-ui/react";
 import ColorModeSwitch from "../ColorModeSwitch";
-import useSideBarStore from "../../sidebarStore";
+import useSideBarStore from "../../stores/sidebarStore";
 import { FaTimes } from "react-icons/fa";
 import { FiMoon } from "react-icons/fi";
 import { FaSun } from "react-icons/fa";

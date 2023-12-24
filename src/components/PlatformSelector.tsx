@@ -30,7 +30,7 @@ import {
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
 import usePlatform from "../hooks/usePlatform";
-import useGameQueryStore from "../store";
+import useGameQueryStore from "../stores/store";
 
 const PlatformSelector = () => {
   const iconMap: { [key: string]: IconType } = {
