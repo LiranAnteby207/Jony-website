@@ -9,7 +9,7 @@ import {
   HStack,
   Heading,
 } from "@chakra-ui/react";
-import { Element } from "./Element";
+import { Element } from "../entities/Element";
 interface Props {
   functions: {
     isOpen: boolean;

@@ -47,43 +47,34 @@ const DownPageMiddle = () => {
     cursor: "pointer",
   };
   return (
-    <Box display="flex" flexDirection="column" alignItems="flex-start">
+    <Box pl="5%" display="flex" flexDirection="column" alignItems="flex-start">
       <Heading color="gray.500" fontWeight="regular" fontSize="16px">
         Help
       </Heading>
-      <Heading style={headingStyle} onClick={linksToModals[0].functions.onOpen}>
-        {linksToModals[0].name}
-      </Heading>
+      {linksToModals.map((link, index) => (
+        <Heading
+          key={index}
+          style={headingStyle}
+          onClick={link.functions.onOpen}
+        >
+          {link.name}
+        </Heading>
+      ))}
       <AboutUsModal
         accordionDataAboutUs={linksToModals[0].accordionData}
         headline={linksToModals[0].name}
         functions={linksToModals[0].functions}
       />
-      <Heading style={headingStyle} onClick={linksToModals[1].functions.onOpen}>
-        {linksToModals[1].name}
-      </Heading>
       <ModalComp
         accordionData={linksToModals[1].accordionData}
         headline={headline}
         functions={linksToModals[1].functions}
       />
-      <Heading style={headingStyle} onClick={linksToModals[2].functions.onOpen}>
-        {linksToModals[2].name}
-      </Heading>
-      <Heading style={headingStyle} onClick={linksToModals[3].functions.onOpen}>
-        {linksToModals[3].name}
-      </Heading>
       <ComplaintsModal
         accordionDataComplaints={linksToModals[3].accordionData}
         headline={linksToModals[3].name}
         functions={linksToModals[3].functions}
       />
-      <Heading style={headingStyle} onClick={linksToModals[4].functions.onOpen}>
-        {linksToModals[4].name}
-      </Heading>
-      <Heading style={headingStyle} onClick={linksToModals[5].functions.onOpen}>
-        {linksToModals[5].name}
-      </Heading>
       <PrivacyPolicyModal
         accordionDataPrivacyPolicy={linksToModals[5].accordionData}
         headline={linksToModals[5].name}

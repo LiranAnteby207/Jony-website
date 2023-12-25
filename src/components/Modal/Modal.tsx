@@ -10,7 +10,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import AccordionMaker from "./AccordionMaker";
-import { Element } from "./Element";
+import { Element } from "../entities/Element";
 interface Props {
   functions: {
     isOpen: boolean;
@@ -26,7 +26,12 @@ interface Props {
 }
 const ModalComp = ({ functions, accordionData, headline }: Props) => {
   return (
-    <Modal size={"xl"} isOpen={functions.isOpen} onClose={functions.onClose}>
+    <Modal
+      scrollBehavior={"inside"}
+      size={"xl"}
+      isOpen={functions.isOpen}
+      onClose={functions.onClose}
+    >
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>

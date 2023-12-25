@@ -1,3 +1,5 @@
+import React from "react";
+import { Element } from "../entities/Element";
 import {
   Modal,
   ModalHeader,
@@ -10,8 +12,6 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
-import { Element } from "../entities/Element";
-import React from "react";
 interface Props {
   functions: {
     isOpen: boolean;
@@ -26,18 +26,13 @@ interface Props {
   headline: string;
 }
 
-const PrivacyPolicyModal = ({
+const TermsAndConditionsModal = ({
   functions,
   accordionDataPrivacyPolicy,
   headline,
 }: Props) => {
   return (
-    <Modal
-      scrollBehavior={"inside"}
-      size={"xl"}
-      isOpen={functions.isOpen}
-      onClose={functions.onClose}
-    >
+    <Modal size={"xl"} isOpen={functions.isOpen} onClose={functions.onClose}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
@@ -82,4 +77,4 @@ const PrivacyPolicyModal = ({
   );
 };
 
-export default PrivacyPolicyModal;
+export default TermsAndConditionsModal;

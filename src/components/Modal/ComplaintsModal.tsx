@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { TbMessageCircle2Filled } from "react-icons/tb";
 
-import { Element } from "./Element";
+import { Element } from "../entities/Element";
 import { Link } from "react-router-dom";
 interface Props {
   functions: {
