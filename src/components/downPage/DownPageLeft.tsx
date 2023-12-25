@@ -34,7 +34,7 @@ const DownPageLeft = () => {
     { icon: tron, number: "0.10$" },
   ];
   return (
-    <Box pt={5} pl={20} mr={6}>
+    <Box pt={5} pl={20} width="40%">
       <HStack>
         <Menu>
           <MenuButton as={Button} rightIcon={<BsChevronDown />}>
@@ -58,7 +58,7 @@ const DownPageLeft = () => {
                 onClick={() => setSelectedLanguage(country.language)}
                 key={country.language}
               >
-                <HStack>
+                <HStack key={country.language}>
                   <Image
                     boxSize={8}
                     borderRadius={8}
@@ -75,7 +75,7 @@ const DownPageLeft = () => {
         </Menu>
         <Button bgColor="green.400">
           <HStack>
-            <Icon as={MdOutlineSupportAgent} boxSize={7} mr={2} />
+            <Icon as={MdOutlineSupportAgent} boxSize={7} />
             <Heading mt={2} fontSize={18}>
               24/7 SUPPORT
             </Heading>
@@ -85,6 +85,7 @@ const DownPageLeft = () => {
       <HStack>
         {coins.map((c) => (
           <Box
+            key={c.number}
             p={4}
             display="flex"
             justifyContent="center"
@@ -98,8 +99,8 @@ const DownPageLeft = () => {
           </Box>
         ))}
       </HStack>
-      <HStack mb={16} ml={16} mr={16}>
-        <Box maxW="7%" mr={6}>
+      <HStack mb={16}>
+        <Box maxW="25%">
           <Link to="/">
             <Image
               style={
@@ -114,7 +115,7 @@ const DownPageLeft = () => {
             />
           </Link>
         </Box>
-        <Box maxW="7%">
+        <Box maxW="25%">
           <Link to="/">
             <Image
               style={

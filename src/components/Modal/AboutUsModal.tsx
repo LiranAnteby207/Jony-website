@@ -1,15 +1,14 @@
 import {
   Modal,
-  ModalOverlay,
-  ModalContent,
   ModalHeader,
   CloseButton,
   ModalBody,
   ModalFooter,
-  Heading,
+  ModalOverlay,
+  ModalContent,
   HStack,
+  Heading,
 } from "@chakra-ui/react";
-import AccordionMaker from "./AccordionMaker";
 import { Element } from "./Element";
 interface Props {
   functions: {
@@ -21,10 +20,11 @@ interface Props {
     getButtonProps: (props?: any) => any;
     getDisclosureProps: (props?: any) => any;
   };
-  accordionData: Element[];
+  accordionDataAboutUs: Element[];
   headline: string;
 }
-const ModalComp = ({ functions, accordionData, headline }: Props) => {
+
+const AboutUsModal = ({ functions, accordionDataAboutUs, headline }: Props) => {
   return (
     <Modal size={"xl"} isOpen={functions.isOpen} onClose={functions.onClose}>
       <ModalOverlay />
@@ -36,7 +36,18 @@ const ModalComp = ({ functions, accordionData, headline }: Props) => {
           </HStack>
         </ModalHeader>
         <ModalBody>
-          <AccordionMaker elements={accordionData} />
+          <Heading as={"p"} fontWeight="regular" fontSize={16}>
+            {accordionDataAboutUs[0].sections[0][0]}
+          </Heading>
+          <Heading as={"h1"} fontWeight="regular" color="red.500" fontSize={20}>
+            {accordionDataAboutUs[0].sections[0][1]}
+          </Heading>
+          <Heading as={"p"} fontWeight="regular" fontSize={16}>
+            {accordionDataAboutUs[0].sections[0][2]}
+          </Heading>{" "}
+          <Heading as={"p"} fontWeight="regular" fontSize={16}>
+            {accordionDataAboutUs[0].sections[0][3]}
+          </Heading>
         </ModalBody>
         <ModalFooter></ModalFooter>
       </ModalContent>
@@ -44,4 +55,4 @@ const ModalComp = ({ functions, accordionData, headline }: Props) => {
   );
 };
 
-export default ModalComp;
+export default AboutUsModal;

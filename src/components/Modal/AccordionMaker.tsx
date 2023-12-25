@@ -8,11 +8,7 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-interface Element {
-  heading: string;
-  sections: string[][];
-}
-
+import { Element } from "./Element";
 interface AccordionMakerProps {
   elements: Element[];
 }

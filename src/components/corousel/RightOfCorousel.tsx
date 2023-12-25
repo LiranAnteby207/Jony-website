@@ -49,6 +49,7 @@ const RightOfCorousel = () => {
       <Box width="20%" height="100%" borderRadius={10} marginBottom="2%">
         {elements.map((e) => (
           <HStack
+            key={e.name}
             mb={3}
             borderBottomRadius={e.name === "dollar medal" ? 10 : 0}
             borderTopRadius={e.name === "icon of man" ? 10 : 0}

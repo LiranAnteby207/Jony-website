@@ -1,4 +1,4 @@
-import { Box, Button, Icon } from "@chakra-ui/react";
+import { Box, Button, Icon, useDisclosure } from "@chakra-ui/react";
 import { GrGamepad } from "react-icons/gr";
 import { GiPokerHand } from "react-icons/gi";
 import {
@@ -6,12 +6,16 @@ import {
   IoNewspaperOutline,
   IoHomeSharp,
 } from "react-icons/io5";
+import accordionData from "../../data/accordionDataTopQusetion";
+import { ImQuestion } from "react-icons/im";
 import { FaGift, FaTelegram } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { IconType } from "react-icons";
 import ModalComp from "../Modal/Modal";
 
 const SidebarMenu = () => {
+  const headline = "Frequently asked questions";
+  const functions = useDisclosure();
   const menuElements: { [key: string]: IconType } = {
     "Main Page": IoHomeSharp,
     Slots: GrGamepad,
@@ -54,7 +58,23 @@ const SidebarMenu = () => {
           </Button>
         </Box>
       ))}
-      <ModalComp />
+      <Box mb={4} ml={4}>
+        <Button
+          fontSize={16}
+          bgColor="transparent"
+          width="100%"
+          justifyContent="flex-start"
+          onClick={functions.onOpen}
+        >
+          <Icon boxSize={6} as={ImQuestion} marginRight={3} />
+          FAQ
+        </Button>
+        <ModalComp
+          headline={headline}
+          accordionData={accordionData}
+          functions={functions}
+        />
+      </Box>
     </Box>
   );
 };
