@@ -1,4 +1,4 @@
-import { Box, Button, Heading, useDisclosure } from "@chakra-ui/react";
+import { Box, Heading, useDisclosure } from "@chakra-ui/react";
 import ModalComp from "../Modal/Modal";
 import accordionDataFAQ from "../../data/accordionDataTopQusetion";
 import accordionDataAboutUs from "../../data/accordionDataAboutUs";
@@ -40,38 +40,50 @@ const DownPageMiddle = () => {
       accordionData: privacyPolicyData,
     },
   ];
-  const functions = useDisclosure();
   const headline = "Frequently asked questions";
+  const headingStyle = {
+    fontWeight: "regular",
+    fontSize: 18,
+    cursor: "pointer",
+  };
   return (
     <Box display="flex" flexDirection="column" alignItems="flex-start">
-      <Heading fontWeight="regular" fontSize="16px">
+      <Heading color="gray.500" fontWeight="regular" fontSize="16px">
         Help
       </Heading>
-      <Button onClick={linksToModals[0].functions.onOpen}>
+      <Heading style={headingStyle} onClick={linksToModals[0].functions.onOpen}>
         {linksToModals[0].name}
-      </Button>
+      </Heading>
       <AboutUsModal
         accordionDataAboutUs={linksToModals[0].accordionData}
         headline={linksToModals[0].name}
         functions={linksToModals[0].functions}
       />
-      <Button onClick={functions.onOpen}>FAQ</Button>
+      <Heading style={headingStyle} onClick={linksToModals[1].functions.onOpen}>
+        {linksToModals[1].name}
+      </Heading>
       <ModalComp
-        accordionData={accordionDataFAQ}
+        accordionData={linksToModals[1].accordionData}
         headline={headline}
-        functions={functions}
+        functions={linksToModals[1].functions}
       />
-      <Button onClick={linksToModals[3].functions.onOpen}>
+      <Heading style={headingStyle} onClick={linksToModals[2].functions.onOpen}>
+        {linksToModals[2].name}
+      </Heading>
+      <Heading style={headingStyle} onClick={linksToModals[3].functions.onOpen}>
         {linksToModals[3].name}
-      </Button>
+      </Heading>
       <ComplaintsModal
         accordionDataComplaints={linksToModals[3].accordionData}
         headline={linksToModals[3].name}
         functions={linksToModals[3].functions}
       />
-      <Button onClick={linksToModals[5].functions.onOpen}>
+      <Heading style={headingStyle} onClick={linksToModals[4].functions.onOpen}>
+        {linksToModals[4].name}
+      </Heading>
+      <Heading style={headingStyle} onClick={linksToModals[5].functions.onOpen}>
         {linksToModals[5].name}
-      </Button>
+      </Heading>
       <PrivacyPolicyModal
         accordionDataPrivacyPolicy={linksToModals[5].accordionData}
         headline={linksToModals[5].name}
