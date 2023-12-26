@@ -4,6 +4,7 @@ import termsAndConditions from "../../data/termsAndConditions";
 import TermsAndConditionsModal from "../Modal/TermsAndConditionsModal";
 import amlPolicyData from "../../data/amlPolicyData";
 import AmlPolicyModal from "../Modal/AmlPolicyModal";
+import DepAndWithModal from "../Modal/DepAndWithModal";
 const DownPageRight = () => {
   const linksToModals = [
     {
@@ -12,17 +13,17 @@ const DownPageRight = () => {
       accordionData: termsAndConditions,
     },
     {
-      name: "AML policy",
+      name: "Appendix 2. AML Policy",
       functions: useDisclosure(),
       accordionData: amlPolicyData,
     },
     {
-      name: "Deposits and withdrawals",
+      name: "Appendix 3. Deposits and withdrawals",
       functions: useDisclosure(),
       accordionData: accordionDataAboutUs,
     },
     {
-      name: "Bonuses and promotions",
+      name: "Appendix 4. Bonus Rules",
       functions: useDisclosure(),
       accordionData: accordionDataAboutUs,
     },
@@ -72,6 +73,10 @@ const DownPageRight = () => {
         accordionDataAmlPolicy={linksToModals[1].accordionData}
         headline={linksToModals[1].name}
         functions={linksToModals[1].functions}
+      />
+      <DepAndWithModal
+        headline={linksToModals[2].name}
+        functions={linksToModals[2].functions}
       />
     </>
   );
