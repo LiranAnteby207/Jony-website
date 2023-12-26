@@ -22,17 +22,22 @@ interface Props {
     getButtonProps: (props?: any) => any;
     getDisclosureProps: (props?: any) => any;
   };
-  accordionDataPrivacyPolicy: Element[];
+  accordionDataTermsAndConditions: Element[];
   headline: string;
 }
 
 const TermsAndConditionsModal = ({
   functions,
-  accordionDataPrivacyPolicy,
+  accordionDataTermsAndConditions,
   headline,
 }: Props) => {
   return (
-    <Modal size={"xl"} isOpen={functions.isOpen} onClose={functions.onClose}>
+    <Modal
+      scrollBehavior={"inside"}
+      size={"xl"}
+      isOpen={functions.isOpen}
+      onClose={functions.onClose}
+    >
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>
@@ -44,7 +49,7 @@ const TermsAndConditionsModal = ({
           </HStack>
         </ModalHeader>
         <ModalBody pr={8} pl={8}>
-          {accordionDataPrivacyPolicy.map((item, index) => (
+          {accordionDataTermsAndConditions.map((item, index) => (
             <React.Fragment key={index}>
               <Heading
                 color="red.400"
@@ -55,11 +60,6 @@ const TermsAndConditionsModal = ({
               >
                 {`${index + 1}. ${item.heading}`}
               </Heading>
-
-              {item.beforeSections && (
-                <Heading fontSize={16}>{`${item.beforeSections}`}</Heading>
-              )}
-
               {item.sections[0].map((section, subIndex) => (
                 <Heading fontSize={16} fontWeight="regular" key={subIndex}>
                   {item.beforeSections
