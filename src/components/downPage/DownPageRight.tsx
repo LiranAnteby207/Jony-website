@@ -2,6 +2,8 @@ import { Box, Heading, useDisclosure } from "@chakra-ui/react";
 import accordionDataAboutUs from "../../data/accordionDataAboutUs";
 import termsAndConditions from "../../data/termsAndConditions";
 import TermsAndConditionsModal from "../Modal/TermsAndConditionsModal";
+import amlPolicyData from "../../data/amlPolicyData";
+import AmlPolicyModal from "../Modal/AmlPolicyModal";
 const DownPageRight = () => {
   const linksToModals = [
     {
@@ -12,7 +14,7 @@ const DownPageRight = () => {
     {
       name: "AML policy",
       functions: useDisclosure(),
-      accordionData: accordionDataAboutUs,
+      accordionData: amlPolicyData,
     },
     {
       name: "Deposits and withdrawals",
@@ -65,6 +67,11 @@ const DownPageRight = () => {
         accordionDataTermsAndConditions={linksToModals[0].accordionData}
         headline={linksToModals[0].name}
         functions={linksToModals[0].functions}
+      />
+      <AmlPolicyModal
+        accordionDataAmlPolicy={linksToModals[1].accordionData}
+        headline={linksToModals[1].name}
+        functions={linksToModals[1].functions}
       />
     </>
   );
