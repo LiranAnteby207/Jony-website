@@ -9,8 +9,8 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import useGenres from "../hooks/useGenres";
-import useGameQueryStore from "../stores/store";
+import useGenres from "../../hooks/useGenres";
+import useGameQueryStore from "../../stores/store";
 
 const GenreSelector = () => {
   const { data, error } = useGenres();

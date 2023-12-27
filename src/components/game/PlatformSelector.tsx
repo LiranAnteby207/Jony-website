@@ -9,7 +9,7 @@ import {
   MenuList,
 } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import usePlatforms from "../hooks/usePlatforms";
+import usePlatforms from "../../hooks/usePlatforms";
 import {
   FaWindows,
   FaPlaystation,
@@ -29,8 +29,8 @@ import {
 } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { IconType } from "react-icons";
-import usePlatform from "../hooks/usePlatform";
-import useGameQueryStore from "../stores/store";
+import usePlatform from "../../hooks/usePlatform";
+import useGameQueryStore from "../../stores/store";
 
 const PlatformSelector = () => {
   const iconMap: { [key: string]: IconType } = {

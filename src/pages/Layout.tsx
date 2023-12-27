@@ -1,25 +1,43 @@
 import NavBar from "../components/navbar/NavBar";
 import { Outlet } from "react-router-dom";
 import useSideBarStore from "../stores/sidebarStore";
-import { Button, Grid, GridItem, Icon, useColorMode } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Grid,
+  GridItem,
+  Icon,
+  useColorMode,
+} from "@chakra-ui/react";
 import SideBar from "../components/sidebar/SideBar";
 import DownPage from "../components/downPage/DownPage";
 import { FaArrowUp } from "react-icons/fa";
+import useRightSideBarStore from "../stores/rightSideBarStore";
+import RightSideBar from "../components/rightSideBar/RightSideBar";
+import RightVisiblePart from "../components/rightSideBar/RightVisiblePart";
 
 const Layout = () => {
   const top = () => {
     window.scrollTo(0, 0);
   };
   const showSidebar = useSideBarStore((s) => s.showSidebar);
+  const setSidebar = useSideBarStore((s) => s.setShowSidebar);
+  const showRightSideBar = useRightSideBarStore((s) => s.showRightSidebar);
+  const setRightSideBar = useRightSideBarStore((s) => s.setRightShowSidebar);
   const { colorMode } = useColorMode();
 
   return (
     <Grid>
-      <NavBar />
+      <Box
+        width="100%"
+        position="fixed"
+        zIndex={showSidebar || showRightSideBar ? 1 : 2}
+      >
+        <NavBar />
+      </Box>
       {showSidebar && (
         <GridItem
-          area="sidebar"
-          position="absolute"
+          position="fixed"
           backgroundColor={colorMode === "dark" ? "gray.800" : "white"}
           top={0}
           bottom={0}
@@ -30,7 +48,47 @@ const Layout = () => {
           <SideBar />
         </GridItem>
       )}
-      <Outlet />
+      <RightVisiblePart />
+      {showRightSideBar && (
+        <GridItem
+          position="fixed"
+          backgroundColor={colorMode === "dark" ? "gray.800" : "white"}
+          top={0}
+          bottom={0}
+          right={0}
+          zIndex={1}
+          paddingLeft={2}
+        >
+          <RightSideBar />
+        </GridItem>
+      )}
+      <Box pt={5}>
+        <Outlet />
+      </Box>
+      {showSidebar && (
+        <Box
+          position="fixed"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bg="rgba(0, 0, 0, 0.5)"
+          zIndex={0}
+          onClick={setSidebar}
+        />
+      )}
+      {showRightSideBar && (
+        <Box
+          position="fixed"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bg="rgba(0, 0, 0, 0.5)"
+          zIndex={0}
+          onClick={setRightSideBar}
+        />
+      )}
       <DownPage />
       <Button
         borderRadius="25%"

@@ -38,7 +38,7 @@ const NavBar = () => {
   return (
     <>
       {isLargeDevice && (
-        <HStack m={2}>
+        <HStack bgColor={colorMode === "dark" ? "gray.800" : "gray.100"}>
           {showSideBar ? null : (
             <Button onClick={setSidebar} bgColor="transparent">
               <Icon as={HiOutlineMenuAlt2} boxSize={7} />
@@ -68,7 +68,7 @@ const NavBar = () => {
       )}
       {isMediumDevice && (
         <>
-          <HStack m={2}>
+          <HStack>
             {showSideBar ? null : (
               <Button onClick={setSidebar} bgColor="transparent">
                 <Icon as={HiOutlineMenuAlt2} boxSize={7} />
@@ -101,7 +101,7 @@ const NavBar = () => {
         </>
       )}
       {isSmallDevice && (
-        <HStack m={2}>
+        <HStack>
           {showSideBar ? null : (
             <Button onClick={setSidebar} bgColor="transparent">
               <Icon as={HiOutlineMenuAlt2} boxSize={7} />
