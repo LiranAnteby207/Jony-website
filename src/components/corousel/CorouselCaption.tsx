@@ -70,7 +70,6 @@ export const CorouselCaptionManHoldingMoney = ({
                 }
               : {}
           }
-          width="130%"
         >
           <Image src={textForMan} alt="50 FREESPINS" />
         </Box>

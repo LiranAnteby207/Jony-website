@@ -11,8 +11,10 @@ import {
   CorouselCaptionZues,
 } from "./CorouselCaption";
 import useSideBarStore from "../../stores/sidebarStore";
+import useRightSideBarStore from "../../stores/rightSideBarStore";
 const Corousel = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
+  const showRightSidebar = useRightSideBarStore((s) => s.showRightSidebar);
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex: number) => {
@@ -36,7 +38,7 @@ const Corousel = () => {
         width: isLargeDevice ? "80%" : "100%",
         marginBottom: "2%",
       }}
-      controls={!showSidebar}
+      controls={!showSidebar && !showRightSidebar}
       indicators={false}
     >
       <Carousel.Item
