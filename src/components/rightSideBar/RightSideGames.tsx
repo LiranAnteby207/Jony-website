@@ -1,12 +1,21 @@
-import React from "react";
-import useGames from "../../hooks/useGames";
+import React, { useState } from "react";
 import { Box, Button, SimpleGrid, useColorMode } from "@chakra-ui/react";
-import GameCardContainer from "../game/GameCardContainer";
-import GameCard from "../game/GameCard";
+import RightSideGame from "./RightSideGame";
 
 const RightSideGames = () => {
+  const [numberOfGames, setNumberOfGames] = useState([1, 2, 3]);
+
+  const handleLoadMore = () => {
+    // Generate an array of 10 additional numbers
+    const additionalNumbers = Array.from(
+      { length: 10 },
+      (_, index) => index + numberOfGames.length + 1
+    );
+
+    // Update the state by combining the existing array with the new numbers
+    setNumberOfGames((prevState) => [...prevState, ...additionalNumbers]);
+  };
   const { colorMode } = useColorMode();
-  const { data, isFetchingNextPage, fetchNextPage, hasNextPage } = useGames();
   return (
     <Box
       overflowY="auto"
@@ -28,21 +37,15 @@ const RightSideGames = () => {
       }}
     >
       <SimpleGrid columns={1} width="300px" spacing={2}>
-        {data?.pages.map((page, index) => (
-          <React.Fragment key={index}>
-            {page.results.map((game) => (
-              <GameCardContainer key={game.id}>
-                <GameCard game={game} />
-              </GameCardContainer>
-            ))}
+        {numberOfGames.map((n) => (
+          <React.Fragment key={n}>
+            <RightSideGame />
           </React.Fragment>
         ))}
       </SimpleGrid>
-      {hasNextPage && (
-        <Button marginY={5} onClick={() => fetchNextPage()}>
-          {isFetchingNextPage ? "Loading..." : "Load More"}
-        </Button>
-      )}
+      <Button marginY={5} onClick={handleLoadMore}>
+        Load More
+      </Button>
     </Box>
   );
 };
