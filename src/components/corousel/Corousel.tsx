@@ -12,6 +12,7 @@ import {
 } from "./CorouselCaption";
 import useSideBarStore from "../../stores/sidebarStore";
 import useRightSideBarStore from "../../stores/rightSideBarStore";
+import { Link } from "react-router-dom";
 const Corousel = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
   const showRightSidebar = useRightSideBarStore((s) => s.showRightSidebar);
@@ -76,14 +77,16 @@ const Corousel = () => {
           overflow="hidden"
           position="relative"
         >
-          <Image
-            src={purpleBackgruond}
-            alt="second slide"
-            className="carousel-background-image"
-          />
-          <Carousel.Caption className="custom-caption" style={{ padding: 0 }}>
-            <CorouselCaptionZues isHoverd={isHoveredZues} />
-          </Carousel.Caption>
+          <Link to={"/tournaments"}>
+            <Image
+              src={purpleBackgruond}
+              alt="second slide"
+              className="carousel-background-image"
+            />
+            <Carousel.Caption className="custom-caption" style={{ padding: 0 }}>
+              <CorouselCaptionZues isHoverd={isHoveredZues} />
+            </Carousel.Caption>
+          </Link>
         </Box>
       </Carousel.Item>
       <Carousel.Item

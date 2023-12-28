@@ -9,7 +9,7 @@ import RightOfCorousel from "../components/corousel/RightOfCorousel";
 
 const HomePage = () => {
   return (
-    <Grid templateAreas={`"main"`} templateColumns="1fr" gap={2}>
+    <Grid pt={4} templateAreas={`"main"`} templateColumns="1fr" gap={2}>
       <GridItem padding={35} mr={10} ml={10} area="main">
         <HStack>
           <Corousel />

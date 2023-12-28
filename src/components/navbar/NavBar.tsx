@@ -38,7 +38,11 @@ const NavBar = () => {
   return (
     <>
       {isLargeDevice && (
-        <HStack bgColor={colorMode === "dark" ? "gray.800" : "gray.100"}>
+        <HStack
+          pt={2}
+          pb={4}
+          bgColor={colorMode === "dark" ? "gray.800" : "gray.100"}
+        >
           {showSideBar ? null : (
             <Button onClick={setSidebar} bgColor="transparent">
               <Icon as={HiOutlineMenuAlt2} boxSize={7} />

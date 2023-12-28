@@ -17,6 +17,7 @@ import {
   Tr,
   Icon,
   Flex,
+  useColorMode,
 } from "@chakra-ui/react";
 import { FaInfo } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
@@ -38,6 +39,7 @@ interface Props {
 }
 
 const DepAndWithModal = ({ functions, headline }: Props) => {
+  const { colorMode } = useColorMode();
   return (
     <Modal
       scrollBehavior={"inside"}
@@ -89,7 +91,7 @@ const DepAndWithModal = ({ functions, headline }: Props) => {
                         display="inline-block"
                         fontSize={10}
                         as="p"
-                        bg="gray.100" // Set the background color here
+                        bg={colorMode === "dark" ? "gray.700" : "gray.100"}
                       >
                         GUEST
                       </Heading>
@@ -106,7 +108,7 @@ const DepAndWithModal = ({ functions, headline }: Props) => {
                         display="inline-block"
                         fontSize={10}
                         as="p"
-                        bg="gray.100" // Set the background color here
+                        bg={colorMode === "dark" ? "gray.700" : "gray.100"}
                       >
                         CLASSIC
                       </Heading>
@@ -123,7 +125,7 @@ const DepAndWithModal = ({ functions, headline }: Props) => {
                         display="inline-block"
                         fontSize={10}
                         as="p"
-                        bg="gray.100" // Set the background color here
+                        bg={colorMode === "dark" ? "gray.700" : "gray.100"}
                       >
                         GOLD
                       </Heading>
@@ -140,7 +142,7 @@ const DepAndWithModal = ({ functions, headline }: Props) => {
                         display="inline-block"
                         fontSize={10}
                         as="p"
-                        bg="gray.100" // Set the background color here
+                        bg={colorMode === "dark" ? "gray.700" : "gray.100"}
                       >
                         VIP
                       </Heading>
