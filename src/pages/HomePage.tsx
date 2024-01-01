@@ -1,11 +1,9 @@
-import { Grid, GridItem, Flex, Box, HStack } from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Box } from "@chakra-ui/react";
 import GameGrid from "../components/game/GameGrid";
 import GenreSelector from "../components/game/GenreSelector";
 import PlatformSelector from "../components/game/PlatformSelector";
 import SearchInput from "../components/game/SearchInput";
 import SortSelector from "../components/game/SortSelector";
-import Corousel from "../components/corousel/Corousel";
-import RightOfCorousel from "../components/corousel/RightOfCorousel";
 import LiveCasinoMainCards from "../components/liveCasino/LiveCasinoMainCards";
 
 const HomePage = () => {

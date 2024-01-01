@@ -6,7 +6,6 @@ import {
   Heading,
   Image,
   SimpleGrid,
-  Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import evoLady from "../../assets/EvolutionGamingLobby.jpg";
