@@ -6,6 +6,7 @@ import {
   HStack,
   Heading,
   Icon,
+  Image,
   Modal,
   ModalBody,
   ModalContent,
@@ -20,6 +21,7 @@ import {
   Thead,
   Tr,
   VStack,
+  useColorMode,
   useDisclosure,
 } from "@chakra-ui/react";
 import { FaTrophy } from "react-icons/fa6";
@@ -28,7 +30,7 @@ import { BiTrophy } from "react-icons/bi";
 import { CiClock1 } from "react-icons/ci";
 import { CiStar } from "react-icons/ci";
 import { FaMoneyBillAlt } from "react-icons/fa";
-
+import logo from "../assets/logo.png";
 interface ModalInfo {
   headline: string;
   prize: string;
@@ -52,6 +54,7 @@ const BigTournamentInfoCard = ({
   tPrize,
   modalInfo,
 }: Props) => {
+  const { colorMode } = useColorMode();
   const prizesModal = useDisclosure();
   const rulesModal = useDisclosure();
   const trDesign = {
@@ -68,6 +71,7 @@ const BigTournamentInfoCard = ({
       borderRadius={20}
       width="20%"
       mr={"2%"}
+      bgColor={colorMode === "dark" ? "gray.700" : "gray.100"}
     >
       <CardBody>
         <Heading ml={16} size={"md"} color="gray.400">
@@ -203,77 +207,50 @@ const BigTournamentInfoCard = ({
                 <CloseButton onClick={rulesModal.onClose} />
               </HStack>
             </ModalHeader>
-            <ModalBody mt={-10}>
-              <TableContainer>
-                <Table>
-                  <Thead>
-                    <Tr>
-                      <Th></Th>
-                      <Th></Th>
-                    </Tr>
-                  </Thead>
-                  <Tbody>
-                    <Tr>
-                      <Td>
-                        <Icon boxSize={6} as={BiTrophy} />
-                      </Td>
-                      <Td>prize fund</Td>
-                    </Tr>
-                    <Tr ml={14}>
-                      <Td>
-                        <Icon color="gray.500" boxSize={8} as={FaTrophy} />
-                      </Td>
-                      <Td>{sPrize}</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>
-                        <Icon color="brown" boxSize={8} as={FaTrophy} />
-                      </Td>
-                      <Td>{tPrize}</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>
-                        <Heading ml={2} fontSize={16}>
-                          4
-                        </Heading>
-                      </Td>
-                      <Td>250$</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>
-                        <Heading ml={2} fontSize={16}>
-                          5
-                        </Heading>
-                      </Td>
-                      <Td>150$</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>
-                        <Heading fontSize={16}>6-10</Heading>
-                      </Td>
-                      <Td>100$</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>
-                        <Heading fontSize={16}>11-30</Heading>
-                      </Td>
-                      <Td>50$</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>
-                        <Heading fontSize={16}>31-60</Heading>
-                      </Td>
-                      <Td>20$</Td>
-                    </Tr>
-                    <Tr>
-                      <Td>
-                        <Heading fontSize={16}>61-100</Heading>
-                      </Td>
-                      <Td>10$</Td>
-                    </Tr>
-                  </Tbody>
-                </Table>
-              </TableContainer>
+            <ModalBody>
+              <VStack alignItems="left">
+                <HStack>
+                  <Icon boxSize={6} as={BiTrophy} />
+                  <Heading ml={6} fontSize={20} fontWeight="regular">
+                    prize fund: {modalInfo.prize}
+                  </Heading>
+                </HStack>
+                <HStack>
+                  <Icon boxSize={6} as={CiClock1} />
+                  <Heading ml={6} fontSize={20} fontWeight="regular">
+                    Time spending: {modalInfo.time}
+                  </Heading>
+                </HStack>
+                <HStack>
+                  <Icon boxSize={6} as={CiStar} />
+                  <Heading ml={6} fontSize={20} fontWeight="regular">
+                    Tournament mechanics: Multiplier race
+                  </Heading>
+                </HStack>
+                <HStack>
+                  <Icon color="gray.400" boxSize={6} as={FaMoneyBillAlt} />
+                  <Heading ml={6} fontSize={20} fontWeight="regular">
+                    Minimum bet: {modalInfo.minimumBet}
+                  </Heading>
+                </HStack>
+                <HStack>
+                  <Icon color="gray.400" boxSize={6} as={BiTrophy} />
+                  <Heading ml={6} fontSize={20} fontWeight="regular">
+                    All Prizes
+                  </Heading>
+                </HStack>
+                <HStack>
+                  <Image
+                    style={{ filter: "brightness(1.5)" }}
+                    ml={-4}
+                    width={"60px"}
+                    src={logo}
+                  />
+                  <Heading fontSize={20} fontWeight="regular">
+                    Time spending: {modalInfo.logoText}
+                  </Heading>
+                </HStack>
+              </VStack>
             </ModalBody>
             <ModalFooter></ModalFooter>
           </ModalContent>

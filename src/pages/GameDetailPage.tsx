@@ -10,7 +10,7 @@ import { IoArrowUndo } from "react-icons/io5";
 import background_gradient_lights from "../assets/background-gradient-lights.jpg";
 import GameGrid from "../components/game/GameGrid";
 import BigTournamentCard from "../components/BigTournamentCard";
-import zues from "../assets/zeusImage.png";
+import zeus from "../assets/zeusImage.png";
 import dropWins from "../assets/drops002.png";
 import logo from "../assets/logo.png";
 import BigTournamentInfoCard from "../components/BigTournamentInfoCard";
@@ -38,13 +38,13 @@ const GameDetailPage = () => {
         <HStack>
           <BigTournamentCard
             bgImage={background_gradient_lights}
-            rImage={zues}
+            rImage={zeus}
             ltImage={dropWins}
             lbText={["Prize Pool", "2 000 000 $"]}
             ltLogo={logo}
           />
           <BigTournamentInfoCard
-            name={"Zues Game"}
+            name={"Zeus Game"}
             headline={"Prize places"}
             fPrize={"1 000$"}
             sPrize={"700$"}
@@ -53,7 +53,7 @@ const GameDetailPage = () => {
           />
         </HStack>
       </GridItem>
-      <GridItem>
+      <GridItem pr={8}>
         <GameGrid />
       </GridItem>
     </Grid>

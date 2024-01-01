@@ -6,15 +6,12 @@ import SearchInput from "../components/game/SearchInput";
 import SortSelector from "../components/game/SortSelector";
 import Corousel from "../components/corousel/Corousel";
 import RightOfCorousel from "../components/corousel/RightOfCorousel";
+import LiveCasinoMainCards from "../components/liveCasino/LiveCasinoMainCards";
 
 const HomePage = () => {
   return (
-    <Grid pt={4} templateAreas={`"main"`} templateColumns="1fr" gap={2}>
-      <GridItem padding={35} mr={10} ml={10} area="main">
-        <HStack>
-          <Corousel />
-          <RightOfCorousel />
-        </HStack>
+    <Grid templateAreas={`"main"`} templateColumns="1fr" gap={2}>
+      <GridItem mr={16} ml={10} area="main">
         <Flex marginBottom={3}>
           <Box marginRight={2}>
             <GenreSelector />
@@ -28,6 +25,7 @@ const HomePage = () => {
           <SearchInput />
         </Flex>
         <GameGrid />
+        <LiveCasinoMainCards />
       </GridItem>
     </Grid>
   );

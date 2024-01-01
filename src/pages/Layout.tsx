@@ -6,6 +6,7 @@ import {
   Button,
   Grid,
   GridItem,
+  HStack,
   Icon,
   useColorMode,
 } from "@chakra-ui/react";
@@ -15,6 +16,9 @@ import { FaArrowUp } from "react-icons/fa";
 import useRightSideBarStore from "../stores/rightSideBarStore";
 import RightSideBar from "../components/rightSideBar/RightSideBar";
 import RightVisiblePart from "../components/rightSideBar/RightVisiblePart";
+import Corousel from "../components/corousel/Corousel";
+import RightOfCorousel from "../components/corousel/RightOfCorousel";
+import { useEffect, useState } from "react";
 
 const Layout = () => {
   const top = () => {
@@ -25,7 +29,14 @@ const Layout = () => {
   const showRightSideBar = useRightSideBarStore((s) => s.showRightSidebar);
   const setRightSideBar = useRightSideBarStore((s) => s.setRightShowSidebar);
   const { colorMode } = useColorMode();
+  const [isTournamentsRoute, setTournamentsRoute] = useState(
+    location.pathname.includes("/tournaments")
+  );
 
+  // Update the state whenever the location changes
+  useEffect(() => {
+    setTournamentsRoute(location.pathname.includes("/tournaments"));
+  }, [location.pathname, isTournamentsRoute]);
   return (
     <Grid>
       <Box
@@ -61,6 +72,12 @@ const Layout = () => {
         >
           <RightSideBar />
         </GridItem>
+      )}
+      {!isTournamentsRoute && (
+        <HStack mt={20} mr={16} ml={10}>
+          <Corousel />
+          <RightOfCorousel />
+        </HStack>
       )}
       <Box pt={5}>
         <Outlet />

@@ -46,7 +46,7 @@ const RightOfCorousel = () => {
   ];
   if (isLargeDevice)
     return (
-      <Box width="20%" height="100%" borderRadius={10} marginBottom="2%">
+      <Box width="20%" height="100%" borderRadius={10}>
         {elements.map((e) => (
           <HStack
             key={e.name}
