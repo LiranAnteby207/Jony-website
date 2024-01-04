@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   CardBody,
   CardFooter,
@@ -15,10 +16,11 @@ import luckyStreakLogo from "../../assets/luckystreak.png.d56ead80c02320dadb2e08
 import pragmaticGamesLady from "../../assets/PragmaticPlayLobby.jpg";
 import pragmaticLogo from "../../assets/pragmatic-play-logo-C41E3B3527-seeklogo.com.png";
 import ezugiLady from "../../assets/EzugiLobby.jpg";
-import ezugiLogo from "../../assets/Ezugi-logo300.webp";
+import ezugiLogo from "../../assets/hvfbbdrni4ez5mbjnujq.png";
 import authenticLady from "../../assets/AuthenticGamingLobby.jpg";
 import authenticLogo from "../../assets/c9e6f16f-4d77-4607-b64e-fb915b5464d4.png";
 import { Link } from "react-router-dom";
+import HoverCards from "../HoverCards";
 const LiveCasinoMainCards = () => {
   const isLargeDevice = useBreakpointValue({
     base: false,
@@ -30,9 +32,21 @@ const LiveCasinoMainCards = () => {
     md: true,
     lg: true,
   });
+  const elementsArray = [
+    {name:'evo',lady: evoLady, logo: evoLogo},
+    {name:'luck',lady: LuckyStreakLady, logo: luckyStreakLogo},
+    {name:'prag',lady: pragmaticGamesLady, logo: pragmaticLogo},
+    {name:'ezug',lady: ezugiLady, logo: ezugiLogo},
+    {name:'auth',lady: authenticLady, logo: authenticLogo},
+  ];
+  let elementsToRender = isLargeDevice
+  ? elementsArray
+  : isMediumDevice
+  ? elementsArray.slice(0, 3)
+  : elementsArray.slice(0, 2);
   return (
-    <>
-      <Link to="/liveCasino">
+    <Box mb={16}>
+      <Link to="/live-casino">
         <HStack>
           <Heading>Live Casino</Heading>
           <Heading fontSize={16} fontWeight="regular" mt={2} color="gray.500">
@@ -40,61 +54,32 @@ const LiveCasinoMainCards = () => {
           </Heading>
         </HStack>
       </Link>
-      <SimpleGrid
-        mb={2}
+      <SimpleGrid mb={2}
         height="350px"
         columns={{ base: 2, md: 3, lg: 5 }}
-        spacing={2}
-      >
-        <Card bgSize="cover" alignItems="center" bgImage={evoLady}>
-          <CardBody></CardBody>
-          <CardFooter>
-            <Image width="100%" src={evoLogo} alt="Company Logo" />
+        spacing={2}>
+
+      {elementsToRender.map(element => (
+        <>
+          <Card  
+          _hover={{
+            "&::after": {},
+            "& .hover-content": {
+              opacity: 1,
+            },
+          }} 
+          bgSize="cover" 
+          alignItems="center" 
+          bgImage={element.lady}>
+          <CardBody><Link to={'/live-casino'}><HoverCards/></Link></CardBody>
+          <CardFooter  height={element.name === 'luck' ? 120 : undefined } width={element.name === 'luck' ? 180 : undefined }>
+            <Image  height={element.name === 'ezug' ? 180 : undefined} mb={element.name === 'ezug' ? -16 : element.name === 'auth'? -6 : undefined} width="100%" src={element.logo} alt="Company Logo" />
           </CardFooter>
         </Card>
-        <Card bgSize="cover" alignItems="center" bgImage={LuckyStreakLady}>
-          <CardBody></CardBody>
-          <CardFooter>
-            <Image src={luckyStreakLogo} alt="Company Logo" />
-          </CardFooter>
-        </Card>
-        {isMediumDevice && (
-          <>
-            <Card
-              bgSize="cover"
-              alignItems="center"
-              bgImage={pragmaticGamesLady}
-            >
-              <CardBody></CardBody>
-              <CardFooter>
-                <Image width="100%" src={pragmaticLogo} alt="Company Logo" />
-              </CardFooter>
-            </Card>
-          </>
-        )}
-        {isLargeDevice && (
-          <>
-            <Card bgSize="cover" alignItems="center" bgImage={ezugiLady}>
-              <CardBody></CardBody>
-              <CardFooter>
-                <Image width="100%" src={ezugiLogo} alt="Company Logo" />
-              </CardFooter>
-            </Card>
-            <Card bgSize="cover" alignItems="center" bgImage={authenticLady}>
-              <CardBody></CardBody>
-              <CardFooter>
-                <Image
-                  style={{ filter: "brightness(150%)" }}
-                  width="100%"
-                  src={authenticLogo}
-                  alt="Company Logo"
-                />
-              </CardFooter>
-            </Card>
-          </>
-        )}
+        </>
+      ))}
       </SimpleGrid>
-    </>
+    </Box>
   );
 };
 

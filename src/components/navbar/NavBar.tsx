@@ -34,7 +34,6 @@ const NavBar = () => {
     md: false,
     lg: false,
   });
-
   return (
     <>
       {isLargeDevice && (

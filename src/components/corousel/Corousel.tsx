@@ -17,7 +17,6 @@ const Corousel = () => {
   const showSidebar = useSideBarStore((s) => s.showSidebar);
   const showRightSidebar = useRightSideBarStore((s) => s.showRightSidebar);
   const [index, setIndex] = useState(0);
-
   const handleSelect = (selectedIndex: number) => {
     setIndex(selectedIndex);
   };

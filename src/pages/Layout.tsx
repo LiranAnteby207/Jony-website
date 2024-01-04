@@ -1,5 +1,5 @@
 import NavBar from "../components/navbar/NavBar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import useSideBarStore from "../stores/sidebarStore";
 import {
   Box,
@@ -18,7 +18,8 @@ import RightSideBar from "../components/rightSideBar/RightSideBar";
 import RightVisiblePart from "../components/rightSideBar/RightVisiblePart";
 import Corousel from "../components/corousel/Corousel";
 import RightOfCorousel from "../components/corousel/RightOfCorousel";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import usePathStore from "../stores/pathStore";
 
 const Layout = () => {
   const top = () => {
@@ -29,14 +30,11 @@ const Layout = () => {
   const showRightSideBar = useRightSideBarStore((s) => s.showRightSidebar);
   const setRightSideBar = useRightSideBarStore((s) => s.setRightShowSidebar);
   const { colorMode } = useColorMode();
-  const [isTournamentsRoute, setTournamentsRoute] = useState(
-    location.pathname.includes("/tournaments")
-  );
-
-  // Update the state whenever the location changes
+  const {selectedPath, setSelectedPath} = usePathStore();
+  let location = useLocation();
   useEffect(() => {
-    setTournamentsRoute(location.pathname.includes("/tournaments"));
-  }, [location.pathname, isTournamentsRoute]);
+    setSelectedPath(location.pathname);
+  }, [location]);
   return (
     <Grid>
       <Box
@@ -73,12 +71,15 @@ const Layout = () => {
           <RightSideBar />
         </GridItem>
       )}
-      {!isTournamentsRoute && (
+      {selectedPath !== '/tournaments' && (
+        <>
         <HStack mt={20} mr={16} ml={10}>
           <Corousel />
           <RightOfCorousel />
         </HStack>
+        </>
       )}
+
       <Box pt={5}>
         <Outlet />
       </Box>
