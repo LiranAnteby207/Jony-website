@@ -76,7 +76,7 @@ const Corousel = () => {
           overflow="hidden"
           position="relative"
         >
-          <Link to={"/tournaments"}>
+          <Link to={"/tournaments/zeus"}>
             <Image
               src={purpleBackgruond}
               alt="second slide"

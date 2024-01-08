@@ -18,10 +18,29 @@ import RightSideBar from "../components/rightSideBar/RightSideBar";
 import RightVisiblePart from "../components/rightSideBar/RightVisiblePart";
 import Corousel from "../components/corousel/Corousel";
 import RightOfCorousel from "../components/corousel/RightOfCorousel";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import usePathStore from "../stores/pathStore";
 
 const Layout = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    // You can adjust the value (200 in this case) to determine when to show the button
+    setShowButton(scrollY > 200);
+  };
+
+  useEffect(() => {
+    // Add event listener for scroll events
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount
+
+
   const top = () => {
     window.scrollTo(0, 0);
   };
@@ -71,7 +90,7 @@ const Layout = () => {
           <RightSideBar />
         </GridItem>
       )}
-      {selectedPath !== '/tournaments' && (
+      {!selectedPath.includes('/tournaments') && (
         <>
         <HStack mt={20} mr={16} ml={10}>
           <Corousel />
@@ -108,16 +127,19 @@ const Layout = () => {
         />
       )}
       <DownPage />
-      <Button
-        borderRadius="25%"
-        boxShadow="0 0 10px rgba(255, 255, 255, 0.5)"
-        mt="-5rem"
-        ml="2%"
-        boxSize={10}
-        onClick={top}
-      >
-        <Icon color="red.500" boxSize={6} as={FaArrowUp} />
-      </Button>
+      {showButton && (
+        <Button
+          position="fixed"
+          bottom="2%"
+          left="2%"
+          borderRadius="25%"
+          boxShadow="0 0 10px rgba(255, 255, 255, 0.5)"
+          boxSize={10}
+          onClick={top}
+        >
+          <Icon color="red.500" boxSize={6} as={FaArrowUp} />
+        </Button>
+      )}
     </Grid>
   );
 };

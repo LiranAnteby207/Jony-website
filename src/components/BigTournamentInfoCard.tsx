@@ -65,35 +65,45 @@ const BigTournamentInfoCard = ({
   };
   return (
     <Card
-      alignItems={"center"}
-      height="300px"
-      mb={4}
+      height='80%'
+
       borderRadius={20}
-      width="20%"
       mr={"2%"}
+      ml={'2%'}
+      width={'20%'}
       bgColor={colorMode === "dark" ? "gray.700" : "gray.100"}
     >
       <CardBody>
-        <Heading ml={16} size={"md"} color="gray.400">
+        <Heading textAlign="center" size={"md"} color="gray.400">
           {headline}
         </Heading>
-        <HStack>
-          <VStack m={4}>
+        <HStack justifyContent="center">
+          <VStack m='2%'>
             <Icon color="gold" boxSize={8} as={FaTrophy} />
-            <Heading fontSize={16}>{fPrize}</Heading>
+            <Heading fontSize={12}>{fPrize}</Heading>
           </VStack>
-          <VStack m={4}>
+          <VStack m='2%'>
             <Icon color="gray.500" boxSize={8} as={FaTrophy} />
             <Heading fontSize={16}>{sPrize}</Heading>
           </VStack>
-          <VStack m={4}>
+          <VStack m='2%' mr='1%'>
             <Icon color="brown" boxSize={8} as={FaTrophy} />
             <Heading fontSize={16}>{tPrize}</Heading>
           </VStack>
         </HStack>
-        <Button ml={20} mt={10} onClick={prizesModal.onOpen}>
-          {modalInfo.headline}
-        </Button>
+        <VStack>
+          <Button onClick={prizesModal.onOpen}>
+            {modalInfo.headline}
+          </Button>
+          <Button onClick={rulesModal.onOpen} mt={2}  width="140px">
+            <HStack>
+              <Icon boxSize={6} color="yellow.400" as={FaInfoCircle} />
+              <Heading color="yellow.400" mt={2} fontSize={20}>
+                RULES
+              </Heading>
+            </HStack>
+          </Button>
+        </VStack>
         <Modal
           size={"xl"}
           isOpen={prizesModal.isOpen}
@@ -184,14 +194,6 @@ const BigTournamentInfoCard = ({
             <ModalFooter></ModalFooter>
           </ModalContent>
         </Modal>
-        <Button onClick={rulesModal.onOpen} mt={2} ml={14} width="140px">
-          <HStack>
-            <Icon boxSize={6} color="yellow.400" as={FaInfoCircle} />
-            <Heading color="yellow.400" mt={2} fontSize={20}>
-              RULES
-            </Heading>
-          </HStack>
-        </Button>
         <Modal
           size={"xl"}
           isOpen={rulesModal.isOpen}

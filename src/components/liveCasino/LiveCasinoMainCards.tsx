@@ -3,8 +3,6 @@ import {
   Card,
   CardBody,
   CardFooter,
-  HStack,
-  Heading,
   Image,
   SimpleGrid,
   useBreakpointValue,
@@ -45,15 +43,7 @@ const LiveCasinoMainCards = () => {
   ? elementsArray.slice(0, 3)
   : elementsArray.slice(0, 2);
   return (
-    <Box mb={16}>
-      <Link to="/live-casino">
-        <HStack>
-          <Heading>Live Casino</Heading>
-          <Heading fontSize={16} fontWeight="regular" mt={2} color="gray.500">
-            all 137
-          </Heading>
-        </HStack>
-      </Link>
+    <Box mb={16} mt={16}>
       <SimpleGrid mb={2}
         height="350px"
         columns={{ base: 2, md: 3, lg: 5 }}

@@ -1,10 +1,10 @@
 import { Box, Flex, Grid, GridItem } from '@chakra-ui/react'
-import GameGrid from '../components/game/GameGrid'
 import GenreSelector from '../components/game/GenreSelector'
 import PlatformSelector from '../components/game/PlatformSelector'
 import SearchInput from '../components/game/SearchInput'
 import SortSelector from '../components/game/SortSelector'
 import LiveCasinoMainCards from '../components/liveCasino/LiveCasinoMainCards'
+import LiveCasinoGames from '../components/liveCasino/LiveCasinoGames'
 
 const LiveCasinoPage = () => {
   return (
@@ -23,7 +23,7 @@ const LiveCasinoPage = () => {
           <SearchInput />
         </Flex>
         <LiveCasinoMainCards />
-        <GameGrid />
+        <LiveCasinoGames/>
       </GridItem>
     </Grid>
   )
