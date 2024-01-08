@@ -69,6 +69,7 @@ import { Link } from "react-router-dom";
           </HStack>
         </GridItem>
         <GridItem pr={isLargeDevice ? 8: 0}>
+          <Heading mb={4}>Tournament games</Heading>
           <GameGrid />
         </GridItem>
       </Grid>

@@ -19,6 +19,7 @@ import authenticLady from "../../assets/AuthenticGamingLobby.jpg";
 import authenticLogo from "../../assets/c9e6f16f-4d77-4607-b64e-fb915b5464d4.png";
 import { Link } from "react-router-dom";
 import HoverCards from "../HoverCards";
+import React from "react";
 const LiveCasinoMainCards = () => {
   const isLargeDevice = useBreakpointValue({
     base: false,
@@ -49,8 +50,8 @@ const LiveCasinoMainCards = () => {
         columns={{ base: 2, md: 3, lg: 5 }}
         spacing={2}>
 
-      {elementsToRender.map(element => (
-        <>
+      {elementsToRender.map((element,index) => (
+        <React.Fragment key={index}>
           <Card  
           _hover={{
             "&::after": {},
@@ -66,7 +67,7 @@ const LiveCasinoMainCards = () => {
             <Image  height={element.name === 'ezug' ? 180 : undefined} mb={element.name === 'ezug' ? -16 : element.name === 'auth'? -6 : undefined} width="100%" src={element.logo} alt="Company Logo" />
           </CardFooter>
         </Card>
-        </>
+        </React.Fragment>
       ))}
       </SimpleGrid>
     </Box>

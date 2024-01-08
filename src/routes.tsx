@@ -5,6 +5,7 @@ import ErrorPage from "./pages/ErrorPage";
 import LiveCasinoPage from "./pages/LiveCasinoPage";
 import TournamentsPage from "./pages/TournamentsPage";
 import TournamentsSpecificPage from "./pages/TournamentsSpecificPage";
+import SlotsPage from "./pages/SlotsPage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,9 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "tournaments", element: <TournamentsPage /> },
       { path: "live-casino", element: <LiveCasinoPage /> },
+      { path: "live-casino/:id", element: <LiveCasinoPage /> },
+      { path: "slots", element: <SlotsPage /> },
+      { path: "slots/:id", element: <SlotsPage /> },
       { path: "tournaments/:id", element: <TournamentsSpecificPage /> },
     ],
   },
