@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardBody, Icon } from '@chakra-ui/react'
 import { FaRegHeart } from "react-icons/fa";
 import { FaCirclePlay } from "react-icons/fa6";
-
+import '../style.css';
 const HoverCards = () => {
   
   return (
@@ -30,7 +30,7 @@ const HoverCards = () => {
       flexDirection="column"
       alignItems="center"
       justifyContent="center">
-        <Icon color='green.400' boxSize={20} as={FaCirclePlay}/>
+        <Icon className='heart' color='green.400' boxSize={20} as={FaCirclePlay}/>
       </CardBody>
     </Card>
     // <Box 

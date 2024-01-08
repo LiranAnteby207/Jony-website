@@ -19,5 +19,13 @@
     padding: 20px; /* Adjust padding as needed */
     color: #fff; /* Set the text color */
   }
+.heart{
+  animation: heart 0.9s linear infinite;
+}
+  @keyframes heart{
+    0% {
+      transform:  scale(1.20);
+    }
+  }
   
   
