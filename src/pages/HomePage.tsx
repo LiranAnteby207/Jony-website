@@ -7,6 +7,7 @@ import SortSelector from "../components/game/SortSelector";
 import LiveCasinoMainCards from "../components/liveCasino/LiveCasinoMainCards";
 import { Link } from "react-router-dom";
 import SlotsRealtimeWins from "../components/slots/SlotsRealtimeWins";
+import IconsHolderMain from "../components/iconsHolder/IconsHolderMain";
 
 const HomePage = () => {
   return (
@@ -42,6 +43,13 @@ const HomePage = () => {
           <Heading>Realtime Wins</Heading>
         </Link>
         <SlotsRealtimeWins />
+      </GridItem>
+
+      <GridItem mr={16} ml={10}>
+        <Link to="/">
+          <Heading>logos</Heading>
+        </Link>
+        <IconsHolderMain />
       </GridItem>
     </Grid>
   );
