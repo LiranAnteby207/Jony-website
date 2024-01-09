@@ -8,6 +8,7 @@ import {
   GridItem,
   HStack,
   Icon,
+  useBreakpointValue,
   useColorMode,
 } from "@chakra-ui/react";
 import SideBar from "../components/sidebar/SideBar";
@@ -22,6 +23,11 @@ import { useEffect, useState } from "react";
 import usePathStore from "../stores/pathStore";
 
 const Layout = () => {
+  const isLargeDevice = useBreakpointValue({
+    base: false,
+    md: false,
+    lg: true,
+  });
   const [showButton, setShowButton] = useState(false);
 
   const handleScroll = () => {
@@ -40,7 +46,6 @@ const Layout = () => {
     };
   }, []); // Empty dependency array means this effect runs once on mount
 
-
   const top = () => {
     window.scrollTo(0, 0);
   };
@@ -49,7 +54,7 @@ const Layout = () => {
   const showRightSideBar = useRightSideBarStore((s) => s.showRightSidebar);
   const setRightSideBar = useRightSideBarStore((s) => s.setRightShowSidebar);
   const { colorMode } = useColorMode();
-  const {selectedPath, setSelectedPath} = usePathStore();
+  const { selectedPath, setSelectedPath } = usePathStore();
   let location = useLocation();
   useEffect(() => {
     setSelectedPath(location.pathname);
@@ -90,17 +95,19 @@ const Layout = () => {
           <RightSideBar />
         </GridItem>
       )}
-      {!selectedPath.includes('/tournaments') && (
-        <>
-        <HStack mt={20} mr={16} ml={10}>
-          <Corousel />
-          <RightOfCorousel />
-        </HStack>
-        </>
-      )}
+      <Box mr={isLargeDevice ? "8%" : 0} ml={isLargeDevice ? "8%" : 0}>
+        {!selectedPath.includes("/tournaments") && (
+          <>
+            <HStack mt={20} mr={16} ml={10}>
+              <Corousel />
+              <RightOfCorousel />
+            </HStack>
+          </>
+        )}
 
-      <Box pt={5}>
-        <Outlet />
+        <Box pt={5}>
+          <Outlet />
+        </Box>
       </Box>
       {showSidebar && (
         <Box

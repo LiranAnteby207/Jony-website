@@ -1,31 +1,46 @@
 .custom-carousel-item {
-    border-radius: "10px"
-    
-  }
-  .carousel-background-image {
-    width: 100%;
-    object-fit: cover; /* This ensures the image covers the entire Carousel.Item */
-  }
+  border-radius: "10px";
+}
+.carousel-background-image {
+  width: 100%;
+  object-fit: cover; /* This ensures the image covers the entire Carousel.Item */
+}
 
 .custom-caption {
-    position: absolute;
-    top: 0;
-    left: '0px';
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px; /* Adjust padding as needed */
-    color: #fff; /* Set the text color */
-  }
-.heart{
+  position: absolute;
+  top: 0;
+  left: "0px";
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px; /* Adjust padding as needed */
+  color: #fff; /* Set the text color */
+}
+.heart {
   animation: heart 0.9s linear infinite;
 }
-  @keyframes heart{
-    0% {
-      transform:  scale(1.20);
-    }
+@keyframes heart {
+  0% {
+    transform: scale(1.2);
   }
-  
-  
+}
+
+.btnPlayerData {
+  border-radius: 200px;
+  margin-left: 6%;
+  background-color: transparent;
+  background-image: url("assets/guest.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 42px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.btnPlayerData:hover {
+  border-color: gold;
+}

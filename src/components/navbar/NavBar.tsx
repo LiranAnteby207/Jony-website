@@ -48,7 +48,7 @@ const NavBar = () => {
             </Button>
           )}
 
-          <Box maxW="7%" ml="auto">
+          <Box maxW="9%" ml="auto">
             <Link to="/">
               <Image
                 style={
@@ -64,7 +64,7 @@ const NavBar = () => {
             </Link>
           </Box>
           <NavbarMenu />
-          <Box ml="auto">
+          <Box ml="auto" mr={"2%"}>
             <NavbarLogSign />
           </Box>
         </HStack>

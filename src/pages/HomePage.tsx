@@ -6,6 +6,7 @@ import SearchInput from "../components/game/SearchInput";
 import SortSelector from "../components/game/SortSelector";
 import LiveCasinoMainCards from "../components/liveCasino/LiveCasinoMainCards";
 import { Link } from "react-router-dom";
+import SlotsRealtimeWins from "../components/slots/SlotsRealtimeWins";
 
 const HomePage = () => {
   return (
@@ -24,8 +25,10 @@ const HomePage = () => {
           <SearchInput />
         </Flex>
         <GameGrid />
+      </GridItem>
+      <GridItem mr={16} ml={10}>
         <Link to="/live-casino">
-          <HStack>
+          <HStack mb={-12}>
             <Heading>Live Casino</Heading>
             <Heading fontSize={16} fontWeight="regular" mt={2} color="gray.500">
               all 137
@@ -33,6 +36,12 @@ const HomePage = () => {
           </HStack>
         </Link>
         <LiveCasinoMainCards />
+      </GridItem>
+      <GridItem mr={16} ml={10}>
+        <Link to="/slots">
+          <Heading>Realtime Wins</Heading>
+        </Link>
+        <SlotsRealtimeWins />
       </GridItem>
     </Grid>
   );
