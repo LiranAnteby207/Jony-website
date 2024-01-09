@@ -46,9 +46,6 @@ const HomePage = () => {
       </GridItem>
 
       <GridItem mr={16} ml={10}>
-        <Link to="/">
-          <Heading>logos</Heading>
-        </Link>
         <IconsHolderMain />
       </GridItem>
     </Grid>

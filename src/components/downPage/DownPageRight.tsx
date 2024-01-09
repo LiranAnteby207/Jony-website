@@ -1,4 +1,9 @@
-import { Box, Heading, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  useBreakpointValue,
+  useDisclosure,
+} from "@chakra-ui/react";
 import accordionDataAboutUs from "../../data/accordionDataAboutUs";
 import termsAndConditions from "../../data/termsAndConditions";
 import TermsAndConditionsModal from "../Modal/TermsAndConditionsModal";
@@ -6,6 +11,8 @@ import amlPolicyData from "../../data/amlPolicyData";
 import AmlPolicyModal from "../Modal/AmlPolicyModal";
 import DepAndWithModal from "../Modal/DepAndWithModal";
 const DownPageRight = () => {
+  const isLargerThanLg = useBreakpointValue({ base: false, lg: true });
+
   const linksToModals = [
     {
       name: "Terms & Conditions",
@@ -40,20 +47,27 @@ const DownPageRight = () => {
   ];
   const headingStyle = {
     fontWeight: "regular",
-    fontSize: 18,
+    fontSize: isLargerThanLg ? "20px" : "12px",
     cursor: "pointer",
   };
   return (
     <>
+      {!isLargerThanLg && (
+        <Heading mb={-2} color="gray.500" fontWeight="regular" fontSize={24}>
+          INFORMATION
+        </Heading>
+      )}
       <Box
         pl="10%"
         display="flex"
-        flexDirection="column"
-        alignItems="flex-start"
+        flexDirection={isLargerThanLg ? "column" : "row"}
+        alignItems={isLargerThanLg ? "flex-start" : "center"}
       >
-        <Heading color="gray.500" fontWeight="regular" fontSize="16px">
-          INFORMATION
-        </Heading>
+        {isLargerThanLg && (
+          <Heading color="gray.500" fontWeight="regular" fontSize="16px">
+            INFORMATION
+          </Heading>
+        )}
         {linksToModals.map((link, index) => (
           <Heading
             key={index}

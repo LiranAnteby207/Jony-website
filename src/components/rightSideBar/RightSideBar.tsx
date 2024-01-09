@@ -4,7 +4,7 @@ import RightSideGames from "./RightSideGames";
 
 const RightSideBar = () => {
   return (
-    <Box>
+    <Box m={2} pl={4} pt={4}>
       <RightSideBarNavBar />
       <RightSideGames />
     </Box>

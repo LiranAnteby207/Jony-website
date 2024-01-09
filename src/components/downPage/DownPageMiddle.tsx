@@ -1,4 +1,9 @@
-import { Box, Heading, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Heading,
+  useBreakpointValue,
+  useDisclosure,
+} from "@chakra-ui/react";
 import ModalComp from "../Modal/Modal";
 import accordionDataFAQ from "../../data/accordionDataTopQusetion";
 import accordionDataAboutUs from "../../data/accordionDataAboutUs";
@@ -8,9 +13,10 @@ import complaintsData from "../../data/complaintsData";
 import privacyPolicyData from "../../data/privacyPolicyData";
 import PrivacyPolicyModal from "../Modal/PrivacyPolicyModal";
 const DownPageMiddle = () => {
+  const isLargerThanLg = useBreakpointValue({ base: false, lg: true });
   const linksToModals = [
     {
-      name: "About us",
+      name: "About_us",
       functions: useDisclosure(),
       accordionData: accordionDataAboutUs,
     },
@@ -35,7 +41,7 @@ const DownPageMiddle = () => {
       accordionData: accordionDataFAQ,
     },
     {
-      name: "Privacy Policy",
+      name: "Privacy_Policy",
       functions: useDisclosure(),
       accordionData: privacyPolicyData,
     },
@@ -47,40 +53,66 @@ const DownPageMiddle = () => {
     cursor: "pointer",
   };
   return (
-    <Box pl="5%" display="flex" flexDirection="column" alignItems="flex-start">
-      <Heading color="gray.500" fontWeight="regular" fontSize="16px">
-        Help
-      </Heading>
-      {linksToModals.map((link, index) => (
+    <>
+      {!isLargerThanLg && (
         <Heading
-          key={index}
-          style={headingStyle}
-          onClick={link.functions.onOpen}
+          mt={-12}
+          mb={-2}
+          color="gray.500"
+          fontWeight="regular"
+          fontSize={28}
         >
-          {link.name}
+          Help
         </Heading>
-      ))}
-      <AboutUsModal
-        accordionDataAboutUs={linksToModals[0].accordionData}
-        headline={linksToModals[0].name}
-        functions={linksToModals[0].functions}
-      />
-      <ModalComp
-        accordionData={linksToModals[1].accordionData}
-        headline={headline}
-        functions={linksToModals[1].functions}
-      />
-      <ComplaintsModal
-        accordionDataComplaints={linksToModals[3].accordionData}
-        headline={linksToModals[3].name}
-        functions={linksToModals[3].functions}
-      />
-      <PrivacyPolicyModal
-        accordionDataPrivacyPolicy={linksToModals[5].accordionData}
-        headline={linksToModals[5].name}
-        functions={linksToModals[5].functions}
-      />
-    </Box>
+      )}
+      <Box
+        ml={isLargerThanLg ? "5%" : "-15%"}
+        display="flex"
+        flexDirection={isLargerThanLg ? "column" : "row"}
+        alignItems={isLargerThanLg ? "flex-start" : "center"}
+      >
+        {isLargerThanLg && (
+          <Heading
+            mt={"-16%"}
+            color="gray.500"
+            fontWeight="regular"
+            fontSize={"20px"}
+          >
+            Help
+          </Heading>
+        )}
+        {linksToModals.map((link, index) => (
+          <Heading
+            m={"2%"}
+            key={index}
+            style={headingStyle}
+            onClick={link.functions.onOpen}
+          >
+            {link.name}
+          </Heading>
+        ))}
+        <AboutUsModal
+          accordionDataAboutUs={linksToModals[0].accordionData}
+          headline={linksToModals[0].name}
+          functions={linksToModals[0].functions}
+        />
+        <ModalComp
+          accordionData={linksToModals[1].accordionData}
+          headline={headline}
+          functions={linksToModals[1].functions}
+        />
+        <ComplaintsModal
+          accordionDataComplaints={linksToModals[3].accordionData}
+          headline={linksToModals[3].name}
+          functions={linksToModals[3].functions}
+        />
+        <PrivacyPolicyModal
+          accordionDataPrivacyPolicy={linksToModals[5].accordionData}
+          headline={linksToModals[5].name}
+          functions={linksToModals[5].functions}
+        />
+      </Box>
+    </>
   );
 };
 

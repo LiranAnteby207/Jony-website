@@ -10,6 +10,7 @@ import {
   Icon,
   Box,
   useColorMode,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import logo from "../../assets/logo.png";
 import { MdOutlineSupportAgent } from "react-icons/md";
@@ -27,6 +28,7 @@ const DownPageLeft = () => {
   const setSelectedLanguage = useLanguageStoreStore(
     (s) => s.setSelectedLanguage
   );
+  const isLargerThanLg = useBreakpointValue({ base: false, lg: true });
   const coins = [
     { icon: bitcoin, number: "43634.00$" },
     { icon: etr, number: "2291.50$" },
@@ -34,7 +36,11 @@ const DownPageLeft = () => {
     { icon: tron, number: "0.10$" },
   ];
   return (
-    <Box pt={5} pl={20} width="40%">
+    <Box
+      pt={5}
+      pl={isLargerThanLg ? "10%" : "22%"}
+      width={isLargerThanLg ? "40%" : "100%"}
+    >
       <HStack>
         <Menu>
           <MenuButton as={Button} rightIcon={<BsChevronDown />}>
@@ -47,7 +53,7 @@ const DownPageLeft = () => {
                   languages.find((l) => l.language === selectedLanguage)?.flag
                 }
               />
-              <Heading pl={2} fontWeight="regular" fontSize={18}>
+              <Heading pl={"2%"} fontWeight="regular" fontSize={18}>
                 {selectedLanguage}
               </Heading>
             </HStack>

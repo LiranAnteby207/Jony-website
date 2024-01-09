@@ -5,7 +5,7 @@ import SidebarBottom from "./SidebarBottom";
 
 const SideBar = () => {
   return (
-    <Box margin={3}>
+    <Box pt={"8%"} margin={3}>
       <SidebarNavbar />
       <SidebarMenu />
       <SidebarBottom />
