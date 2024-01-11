@@ -30,7 +30,7 @@ import patagonia from "../assets/iconsOfCompanies/Patagonia-Entertainment-Logo.p
 import pgsoft from "../assets/iconsOfCompanies/pgsoft.png";
 import platipus from "../assets/iconsOfCompanies/Platipus.png";
 import playtech from "../assets/iconsOfCompanies/playtech.png";
-import pushgaming from "../assets/iconsOfCompanies/pushgaming.jpeg";
+import pushgaming from "../assets/iconsOfCompanies/push-gaming-provider.webp";
 import relaxgaming from "../assets/iconsOfCompanies/relax-gaming.png";
 import spinomenal from "../assets/iconsOfCompanies/spinomenal2.png";
 import stakelogic from "../assets/iconsOfCompanies/Stakelogic.png";
