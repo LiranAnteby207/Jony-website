@@ -7,6 +7,7 @@ import TournamentsPage from "./pages/TournamentsPage";
 import TournamentsSpecificPage from "./pages/TournamentsSpecificPage";
 import SlotsPage from "./pages/SlotsPage";
 import BonusPage from "./pages/BonusPage";
+import HallOfFamePage from "./pages/HallOfFamePage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       { path: "slots/:id", element: <SlotsPage /> },
       { path: "tournaments/:id", element: <TournamentsSpecificPage /> },
       { path: "Bonuses", element: <BonusPage /> },
+      { path: "hall-of-fame", element: <HallOfFamePage /> },
     ],
   },
 ]);

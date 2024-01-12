@@ -13,7 +13,7 @@ const IconsHolderMain = () => {
             left="0"
             right="0"
             bottom="0"
-            bgColor={colorMode === "dark" ? "rgba(15, 15, 15, 0.9)" : ""}
+            bgColor={colorMode === "dark" ? "rgba(18, 18, 18, 0.9)" : ""}
             _hover={{
               bgColor: "transparent",
               transition: "background-color 0.5s ease-in-out",
@@ -25,7 +25,7 @@ const IconsHolderMain = () => {
             color={"gray.500"}
             src={element.img}
             title={element.name}
-            zIndex="1" // Ensure the image is on top of the background
+            zIndex="1"
           />
         </Box>
       ))}
