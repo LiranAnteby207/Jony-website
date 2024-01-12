@@ -1,0 +1,37 @@
+export default [
+  [
+    "Guest",
+    "Status is granted for registration",
+    "Free spins registration bonus",
+    "100% First Deposit Bonus",
+    "Maximum payout: 1000$ per day",
+  ],
+  [
+    "Classic",
+    "Status is granted for 100 CPs accumulated",
+    "СР exchange rate: 5$ for 100СРs",
+    "Birthday bonus: 10$",
+    "Maximum payout: 3000$ per day",
+  ],
+  [
+    "Gold",
+    "Status is granted for 1000 CPs accumulated",
+    "СР exchange rate: 8$ for 100СРs",
+    "Birthday bonus: 50$",
+    "Maximum payout: 5000$ per day",
+    "Monthly cashback: 7%",
+    "Weekly deposit bonus: 50%  ",
+    "Free access to Slotomania tournament",
+  ],
+  [
+    "VIP",
+    "Status is granted for 10000 CPs accumulated",
+    "Personal manager",
+    "СР exchange rate: 12$ for 100СР",
+    "Birthday bonus: 250$",
+    "Maximum payout: 10000$ per day",
+    "Monthly cashback: 10%",
+    "Weekly deposit bonus: 100%",
+    "Free access to Slotomania tournament",
+  ],
+];

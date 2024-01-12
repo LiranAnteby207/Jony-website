@@ -96,14 +96,15 @@ const Layout = () => {
         </GridItem>
       )}
       <Box mr={isLargeDevice ? "8%" : 0} ml={isLargeDevice ? "8%" : 0}>
-        {!selectedPath.includes("/tournaments") && (
-          <>
-            <HStack mt={20} mr={16} ml={10}>
-              <Corousel />
-              <RightOfCorousel />
-            </HStack>
-          </>
-        )}
+        {!selectedPath.includes("/tournaments") &&
+          !selectedPath.includes("/Bonuses") && (
+            <>
+              <HStack mt={20} mr={16} ml={10}>
+                <Corousel />
+                <RightOfCorousel />
+              </HStack>
+            </>
+          )}
 
         <Box pt={5}>
           <Outlet />
