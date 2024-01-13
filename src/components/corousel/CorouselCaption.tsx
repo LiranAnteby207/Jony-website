@@ -1,4 +1,12 @@
-import { HStack, Heading, Box, Image, Text, Button } from "@chakra-ui/react";
+import {
+  HStack,
+  Heading,
+  Box,
+  Image,
+  Text,
+  Button,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import zues from "../../assets/zeusImage.png";
 import dropWins from "../../assets/drops002.png";
 import manMoney from "../../assets/manHoldingMoney.png";
@@ -7,6 +15,11 @@ import moneyTrophy from "../../assets/cadOfMoney.png";
 import textMoneyTrophy from "../../assets/tonOfMoney.png";
 
 export const CorouselCaptionZues = ({ isHoverd }: { isHoverd: boolean }) => {
+  const isLargeDevice = useBreakpointValue({
+    base: false,
+    md: false,
+    lg: true,
+  });
   return (
     <HStack height="100%">
       <Box>
@@ -42,7 +55,12 @@ export const CorouselCaptionZues = ({ isHoverd }: { isHoverd: boolean }) => {
         }
         height="100%"
       >
-        <Image src={zues} alt="zues" height="105%" />
+        <Image
+          src={zues}
+          alt="zues"
+          height="105%"
+          width={!isLargeDevice ? "650px" : undefined}
+        />
       </Box>
     </HStack>
   );

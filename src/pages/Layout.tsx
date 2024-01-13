@@ -97,7 +97,8 @@ const Layout = () => {
       )}
       <Box mr={isLargeDevice ? "8%" : 0} ml={isLargeDevice ? "8%" : 0}>
         {!selectedPath.includes("/tournaments") &&
-          !selectedPath.includes("/Bonuses") && (
+          !selectedPath.includes("/Bonuses") &&
+          !selectedPath.includes("/hall-of-fame") && (
             <>
               <HStack mt={20} mr={16} ml={10}>
                 <Corousel />

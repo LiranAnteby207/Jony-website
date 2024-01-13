@@ -40,9 +40,31 @@
   border: 2px solid transparent;
   transition: border-color 0.3s ease-in-out;
 }
-
+.btnPlayerData2 {
+  border-radius: 200px;
+  margin-left: 6%;
+  background-color: transparent;
+  background-image: url("assets/guest.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 60px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
 .btnPlayerData:hover {
   border-color: gold;
+}
+.btnNumberData2 {
+  margin-top: -12px;
+  border-radius: 200px;
+  margin-left: 6%;
+  background-color: gray;
+  width: 25px;
+  height: 25px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease-in-out;
 }
 .card {
   margin: auto;
