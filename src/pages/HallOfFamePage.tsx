@@ -29,7 +29,7 @@ const HallOfFamePage = () => {
       </HStack>
       <HStack display={"flex"} justifyContent={"center"} mt={8}>
         <ButtonGroup
-          bgColor={colorMode === "dark" ? "gray.700" : "gray.100"}
+          bgColor={colorMode === "dark" ? "gray.700" : ""}
           borderRadius={4}
         >
           <Button

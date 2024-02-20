@@ -3,8 +3,11 @@ import {
   VStack,
   Text,
   Heading,
-  Icon,
   useColorMode,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
 } from "@chakra-ui/react";
 import { BsThreeDotsVertical } from "react-icons/bs";
 
@@ -12,18 +15,24 @@ const HallOfFameColumn = () => {
   const { colorMode } = useColorMode();
   const elements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <VStack mt={14}>
+    <VStack
+      borderRadius={16}
+      m={8}
+      bgColor={colorMode === "dark" ? "gray.700" : "gray.100"}
+      p={4}
+      mt={14}
+    >
       {elements.map((e) => (
         <HStack
           bgColor={colorMode === "dark" ? "gray.700" : "gray.100"}
-          m={2}
           width={"300px"}
           borderRadius={8}
           display={"flex"}
           justifyContent={"space-between"}
           alignItems={"center"}
+          border={"1px "}
         >
-          <HStack ml={2}>
+          <HStack>
             <VStack>
               <button className="btnPlayerData2" />
               <button className="btnNumberData2">{e}</button>
@@ -35,7 +44,25 @@ const HallOfFameColumn = () => {
               <Heading mt={-2}>$ 3 588</Heading>
             </VStack>
           </HStack>
-          <Icon ml={"10%"} mt={-8} mr={4} as={BsThreeDotsVertical} />
+          <Menu>
+            <MenuButton
+              width={4}
+              height={4}
+              mt={-8}
+              as={Button}
+              display={"flex"}
+              alignItems={"center"}
+              rightIcon={<BsThreeDotsVertical />}
+            ></MenuButton>
+            <MenuList width={48}>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Laudantium sapiente voluptate sunt deserunt blanditiis a impedit
+                sint cumque qui fugiat eius dolor ratione, placeat corporis et
+                quisquam temporibus ducimus hic!
+              </Text>
+            </MenuList>
+          </Menu>
         </HStack>
       ))}
     </VStack>
